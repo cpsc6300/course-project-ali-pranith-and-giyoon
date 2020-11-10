@@ -1,5 +1,5 @@
 # TITLE:
-## Team Members:
+## Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
 ## Date:
 
 # Project Description
