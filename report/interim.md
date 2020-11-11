@@ -20,12 +20,33 @@ Meeting delivery requirements and customers’ expectations is very important fo
 The concept of on-time delivery measures performance regarding perfact delivery and customer service level with delivery reliability and order completeness(Gunasekaran et al., 2004). On-time delivery, lead time length, delivery reliability, and inventory service level are examples of common delivery service performance variables in dyadic customer–supplier interfaces. Among them, on-time delivery is often considered the most important performance variable when orders are seldom changed in the supply chain(Keebler et al.1999, Stock and Lambert 2001). Most companies, regardless firm size and industry, normally have on-time as in important supply perfromnance metric.  When defining on-time delivery, there are several different issues that firms need to consider(Forslund and Jonsson 2007). The first concerns the measurement object, which may be the number of orders, individual items or, order lines. The second concerns the time unit for measuring being on time. It could vary between the correct hour, day, week or within a specific time window. The third concerns the measurement point, i.e. where along the supply chain the order is considered to be delivered. The fourth concerns the comparison date for an actual delivery date in order to decide if it is on time or not. However, few studies have examined in any depth how delivery service performance should be managed, and almost none have focused on measuring on-time delivery. 
 
 ## Interim Results
-If you have some interim results or new findings, you can include them here.
+#If you have some interim results or new findings, you can include them here.
+At Scenario 1, with Random Forest, we invastigate whether the Milestones 1 through 9 have been met or not.
+For the first Model in the Scenario 1, we included the binary features showing whether the milesetones 1-9 have been met or not.To determine the importance of features and select the most important ones, we first ran a random forest.Finally, we selected 11 features according to their importance obtained from Random Forest such as supplier location, line_number, ship_points etc. Furthermore, we ran Random Forest with the best hyperparameters then the testing accuracy is 91.7%. For the second Model in the Scenario 1, instead of using the binary features for meeting the milestones 1-9, I used the numerical features showing the differences between the scheduled and actualized dates for the milestones 1-9. After selecting the featrues that is most important, we ran Random Forest withe best hyperparameters. Comparing to the results from the Model (1) above, we get much better testing accuracy with 98.8%. 
 
 # Project Progress
 This could include the __revised__ major timeline and milestones of your project as well as requirements of computing and storage resources. 
 
 This may also include a brief summary of your team's progress on the project and a candid reflection of what's gone wrong and what's gone right, and what efforts that your team have taken or are going to takea to overcome any issue that comes out during the course of the project.
+
+
+1- Data cleaning up and data preparation: 2 weeks
+
+2- Feature Selection for different prediction scenarios: 1 weeks
+
+o Scenario 1: We are at the stage after Milestone 9 and know whether the Milestones 1 through 9 have been met or not.
+
+o Scenario 2: We are at the early stage before meeting any milestones. Therefore, in this scenario, we assumed that we do not have any information about meeting the Milestones 1-9.
+
+o Scenario 3: We supposed that we do not have any information on meeting the milestones 1-9 and on other time-related features. In other words, in this scenario, we only used time-independent features to predict meeting Milestone 10.
+
+3- Implementation and evaluation of different ML models: 1 weeks
+
+4- Documentation and preparation report and website: 2 weeks
+
+of computing and storage requirements:
+
+As our dataset is not too big, we can do this project using a typical desktop.
 
 # References:
 
