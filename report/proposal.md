@@ -11,13 +11,21 @@ Meeting delivery requirements and customers’ expectations is very important fo
 
 # Plan
 1- Data cleaning up and data preparation: 2 weeks
+
 2- Feature Selection for different prediction scenarios: 1 weeks
+
 o	Scenario 1: We are at the stage after Milestone 9 and know whether the Milestones 1 through 9 have been met or not.
+
 o	Scenario 2: We are at the early stage before meeting any milestones. Therefore, in this scenario, we assumed that we do not have any information about meeting the Milestones 1-9.
+
 o	Scenario 3: We supposed that we do not have any information on meeting the milestones 1-9 and on other time-related features. In other words, in this scenario, we only used time-independent features to predict meeting Milestone 10.
+
 3- Implementation and evaluation of different ML models: 1 weeks
+
 4- Documentation and preparation report and website: 2 weeks
+
 of computing and storage requirements:
+
 As our dataset is not too big, we can do this project using a typical desktop. 
 
 # References:
