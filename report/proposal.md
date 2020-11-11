@@ -31,6 +31,9 @@ As our dataset is not too big, we can do this project using a typical desktop.
 # References:
 
 [1] Otto Motors (2017), Being on Time, Every Time: On-Time Delivery & Customer Satisfaction,  https://ottomotors.com/blog/on-time-delivery-manufacturing
+
 [2] Zhang, J., Lam, W. H., & Chen, B. Y. (2016). On-time delivery probabilistic models for the vehicle routing problem with stochastic demands and time windows. European Journal of Operational Research, 249(1), 144-154.
+
 [3] http://www.leanmanufacture.net/kpi/ontimedelivery.aspx
+
 [4] Lingaro Group (2020), On Time Delivery - The Full Story Behind the Metric and Its Potential, https://lingarogroup.com/blog/on-time-delivery-the-full-story-behind-the-metric-and-its-potential/
