@@ -21,6 +21,7 @@ The concept of on-time delivery measures performance regarding perfact delivery 
 
 ## Interim Results
 #If you have some interim results or new findings, you can include them here.
+
 At Scenario 1, with Random Forest, we invastigate whether the Milestones 1 through 9 have been met or not.
 For the first Model in the Scenario 1, we included the binary features showing whether the milesetones 1-9 have been met or not.To determine the importance of features and select the most important ones, we first ran a random forest.Finally, we selected 11 features according to their importance obtained from Random Forest such as supplier location, line_number, ship_points etc. Furthermore, we ran Random Forest with the best hyperparameters then the testing accuracy is 91.7%. For the second Model in the Scenario 1, instead of using the binary features for meeting the milestones 1-9, I used the numerical features showing the differences between the scheduled and actualized dates for the milestones 1-9. After selecting the featrues that is most important, we ran Random Forest withe best hyperparameters. Comparing to the results from the Model (1) above, we get much better testing accuracy with 98.8%. 
 
