@@ -49,6 +49,6 @@ The submitted work is my and my teammates' original work and not copied from the
 Each use of existing work of others in the submitted is cited with proper reference.
 Signature: ____________ Date: ______________
 ```
-
+!['figure'](../figure/ps04.png)
 # Credit
 The above project template is based on a template developed by Harvard IACS CS109 staff (see https://github.com/Harvard-IACS/2019-CS109A/tree/master/content/projects).
