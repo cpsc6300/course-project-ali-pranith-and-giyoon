@@ -46,7 +46,7 @@ Scenario 3: We supposed that we do not have any information on meeting the Miles
 ## Scenario 1: We are at the stage after Milestone 9
 Model 1: Using binary features for meeting the Milestones 1-9
 In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
-![](figure/feature importance.png)
+![](figure/feature%20importance.png)
 
 
 # Project Trajectory, Results, and Interpretation 
