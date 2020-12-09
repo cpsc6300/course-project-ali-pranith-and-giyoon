@@ -97,7 +97,7 @@ Testing Accuracy: 0.9879609441653238
 
 In Model 3, to increase the size of training and test datasets, we removed the features related to the Milestones 6 and 8 as they have much more Null values compared to other features. Because we want to run different classification methods and compare their performance metrics, we performed a correlation matrix beteen features and selected the highest correlated features with the target feature as the most important features. Then, we tuned the hyperparameters of several classification methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression. Finally, we trained the tuned models, obtained the performance metrics using test dataset, and compare the results.
 
-Model 3-1 Random Forest
+#### Model 3-1 Random Forest
           
 ![figure5](https://user-images.githubusercontent.com/61207345/101671525-96e7ba00-3a22-11eb-9c3a-70f713aefec8.png)
 
@@ -125,7 +125,7 @@ Testing Accuracy: 0.9900937285681628
 
 
 
-Model 3-2 Decision Tree
+#### Model 3-2 Decision Tree
 
 The best tuned hyperparameters are:
 {'max_depth': 15, 'max_features': 9, 'min_samples_leaf': 1, 'min_samples_split': 3}
@@ -146,7 +146,7 @@ Testing Accuracy: 0.9887982930732302
  
  
  
-Model3-3 SVM
+#### Model 3-3 SVM
 
 The best tuned hyperparameters are:
 {'C': 50, 'kernel': 'rbf'}
@@ -168,7 +168,7 @@ Testing Accuracy: 0.9225786786557951
 
 
 
-Model3-4 KNN
+#### Model 3-4 KNN
 
 The best tuned hyperparameters are: {'n_neighbors': 1}
 
@@ -187,7 +187,7 @@ Testing Accuracy: 0.9809494780156977
 
 
 
-Model3-5 Logitstic Regression
+#### Model 3-5 Logitstic Regression
 
 The best tuned hyperparameters are: {'C': 10, 'penalty': 'l1'}
 
@@ -205,7 +205,7 @@ Testing Accuracy: 0.9075668673321649
 
 
 
-Comparions of Models
+#### Comparions of Models
 
 
 ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
