@@ -39,6 +39,18 @@ The first concerns the measurement object, which may be the number of orders, in
 + Describe the baseline model.
 + Describe your implementations beyond the baseline model and the design choices that you have made.
 
+For the prediction of meeting Milestone 10, we followed 3 different modeling scenarios:
+Scenario 1: We are at the stage after Milestone 9 and know whether the Milestones 1 through 9 have been met or not.
+
+Scenario 2: We are at the early stage before meeting any milestones. Therefore, in this scenario, we assumed that we do not have any information on whether Milestones 1 trough 9 will be met or not.
+
+Scenario 3: We supposed that we do not have any information on meeting the Milestones 1 trough 9 and on other time-dependent features such as Line_SOP_date, Line_RAS_date, etc. In other words, in this scenario, we only used time-independent features such as ORIGIN, DESTINATION, SHIPMENT TYPE, SUPPLIER, etc. to predict meeting Milestone 10.
+
+## Scenario 1: We are at the stage after Milestone 9
+Model 1: Using binary features for meeting the Milestones 1-9
+In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
+
+
 # Project Trajectory, Results, and Interpretation 
 
 Briefly summarize any changes in your project goals or implementation plans you have made.
