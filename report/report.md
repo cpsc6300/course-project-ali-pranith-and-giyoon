@@ -36,9 +36,6 @@ The first concerns the measurement object, which may be the number of orders, in
 
 # Modeling Approach
 
-+ Describe the baseline model.
-+ Describe your implementations beyond the baseline model and the design choices that you have made.
-
 For the prediction of meeting Milestone 10, we followed 3 different modeling scenarios:
 Scenario 1: We are at the stage after Milestone 9 and know whether the Milestones 1 through 9 have been met or not.
 
