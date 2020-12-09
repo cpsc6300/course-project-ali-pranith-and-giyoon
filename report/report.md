@@ -43,12 +43,12 @@ Scenario 2: We are at the early stage before meeting any milestones. Therefore, 
 
 Scenario 3: We supposed that we do not have any information on meeting the Milestones 1 trough 9 and on other time-dependent features such as Line_SOP_date, Line_RAS_date, etc. In other words, in this scenario, we only used time-independent features such as ORIGIN, DESTINATION, SHIPMENT TYPE, SUPPLIER, etc. to predict meeting Milestone 10.
 
-![](Figure/figure1.png)
+
 
 ## Scenario 1: We are at the stage after Milestone 9
 Model 1: Using binary features for meeting the Milestones 1-9
 In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
-![](figure/feature%20importance.png)
+![](Figure/figure1.png)
 
 
 # Project Trajectory, Results, and Interpretation 
