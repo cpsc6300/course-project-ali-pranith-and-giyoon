@@ -49,7 +49,19 @@ Scenario 3: We supposed that we do not have any information on meeting the Miles
 Model 1: Using binary features for meeting the Milestones 1-9
 In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
-![](Figure/figure1.png)
+![figure1](https://user-images.githubusercontent.com/61207345/101667738-b16b6480-3a1d-11eb-976d-b0db726cc1dc.png)
+
+selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO',
+                     'MILESTONE_2_meet', 'MILESTONE_3_meet', 'MILESTONE_4_meet', 'MILESTONE_6_meet', 'MILESTONE_8_meet', 
+                     'MILESTONE_9_meet', 'MILESTONE_10_meet']
+                     
+Mean Cross-Validated Accuracy: 0.9142750054122457
+
+Training Accuracy: 0.9195601166070201
+
+Testing Accuracy: 0.9169589534553039
+
+
 
 
 # Project Trajectory, Results, and Interpretation 
