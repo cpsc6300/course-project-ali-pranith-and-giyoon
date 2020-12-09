@@ -66,11 +66,15 @@ Testing Accuracy: 0.9169589534553039
 ![figure2](https://user-images.githubusercontent.com/61207345/101670361-0eb4e500-3a21-11eb-929a-dade35cfce64.png)
 
 
+
+
+
 Model 2: Using difference features for meeting Milestones 1-9
 
 In Model 2, instead of using the binary features for meeting the milestones 1 through 9, we used the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
 ![figure3](https://user-images.githubusercontent.com/61207345/101671314-55570f00-3a22-11eb-8930-393fb618c58d.png)
+
 
 selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO',
                      'MILESTONE_2_Diff', 'MILESTONE_3_Diff', 'MILESTONE_4_Diff', 'MILESTONE_6_Diff', 
@@ -83,6 +87,9 @@ Training Accuracy: 0.9942881520631385
 Testing Accuracy: 0.9879609441653238
 
 ![figure4](https://user-images.githubusercontent.com/61207345/101671417-7881be80-3a22-11eb-9c93-37dda274cc1d.png)
+
+
+
 
 
 
@@ -115,6 +122,9 @@ Testing Accuracy: 0.9900937285681628
 
 
 
+
+
+
 Model 3-2 Decision Tree
 
 The best tuned hyperparameters are:
@@ -131,6 +141,9 @@ Testing Accuracy: 0.9887982930732302
 
 ![figure8](https://user-images.githubusercontent.com/61207345/101672144-7d933d80-3a23-11eb-9532-1e26c7e79a1c.png)
 
+ 
+ 
+ 
  
  
 Model3-3 SVM
@@ -152,6 +165,9 @@ Testing Accuracy: 0.9225786786557951
 
 
 
+
+
+
 Model3-4 KNN
 
 The best tuned hyperparameters are: {'n_neighbors': 1}
@@ -165,6 +181,9 @@ Training Accuracy: 0.9964945703943608
 Testing Accuracy: 0.9809494780156977
 
 ![figure10](https://user-images.githubusercontent.com/61207345/101672458-e37fc500-3a23-11eb-919b-1fd937592e2e.png)
+
+
+
 
 
 
@@ -184,10 +203,13 @@ Testing Accuracy: 0.9075668673321649
 
 
 
+
+
 Comparions of Models
 
 
 ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
+
 
 From the comparisions models, we found that Random Forest has the highest accuracy and Logistic Rgression has the lowest accuracy. 
 
@@ -203,6 +225,7 @@ Radom Forest --- Selecting Features
 
 ![figure13](https://user-images.githubusercontent.com/61207345/101673068-a7992f80-3a24-11eb-9f37-abb7dd8c2ace.png)
 
+
 selected_features = ['REV', 'SUPPLIER_LOCATION', 'LINE_NUMBER', 'PO_PRIME_ID', 'ITEM_PRIME_ID', 'MATERIAL_TYPE', 'SHIP_POINT','RECEIVING_ONLY_PO', 'SCHEDULE_SOP_10_Diff', 'SCHEDULE_RAS_10_Diff', 'SCHEDULE_SCP_10_Diff', 'MILESTONE_10_meet']
 
 The best tuned hyperparameters are: {'max_depth': 20, 'max_features': 7, 'min_samples_leaf': 1}
@@ -216,6 +239,7 @@ Training Accuracy: 0.9953120184274985
 Testing Accuracy: 0.979885803270179
 
 ![figure14](https://user-images.githubusercontent.com/61207345/101673194-dca58200-3a24-11eb-9443-19305a803e0e.png)
+
 
 
 
