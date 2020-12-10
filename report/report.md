@@ -510,7 +510,7 @@ Thus, logitstic model shows poor performance and it is not recommened to use log
 
 
 **Table 8: Comparison of Models** 
-| Method  | Training Accuracy |Testing Accuracy |Mean Cross Validation Accuracy |
+| Method  | Training Accuracy | Testing Accuracy | Cross Validation Accuracy |
 | ------------- | ------------- |------------- |------------- |
 | Random Forest | 0.9945  |0.9901  |0.9889 |
 | Decision Tree  | 0.9939  |0.9888  |0.9874  |
