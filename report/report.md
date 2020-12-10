@@ -11,9 +11,9 @@ One of the most challenging problems in logistics and supply chain network is me
 
 Machine Learning methods can considerably help suppliers with utilizing historical data on shipment delivery and predict whether a shipment with specific characteristics (origin, destination, shipment type, etc.) will deliver on time or not (Hughes et al., 2019). This prediction model substantially helps suppliers and third-party logistics companies to enhance their supply chain network and offer more reasonable delivery dates to their customers. For instance, if the prediction shows that the delivery of a specific type of shipment or delivery to a particular destination will have a delay, the provider might figure out the main issues to enhance the network in the future. They can also notice the customer that the shipment might not deliver on time.
 
-In this project, we propose several modeling scenarios based on the available data and the stage at which a firm wants to predict if a shipment will be delivered on time or not, using various supervised machine learning methods. Therefore, in this project, our target is a binary feature indicating that if a shipment meets its scheduled delivery or not. For this purpose, we utilized various time-independent predictors such as supplier location, shipment origin, shipment destination, shipment type, shipment material, the quantity of the shipment, etc. and time-dependent features such as different milestones indicating that if a shipment has met its scheduled date for that milestone or not. Logistics firms usually have a system to track their shipments from an origin to a destination. They also set several milestones and plan schedules for each milestone to track if a shipment will follow its scheduled plan (Otto, 2003). In this case study, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm with a large-scale supply chain network and gathers different time-independent and time-dependent features shipments. This firm sets ten milestones for tracking a shipment at different stages, from issuing a purchase order to delivery to the destination. For each milestone, the firm sets a scheduled date that expects the shipment to meet and collected an actualized date that the shipment met that milestone. The difference between the scheduled and actualized dates for each milestone shows that if the shipment has met that milestone or not. This study aims to predict if a shipment will meet the final milestone (milestone 10), which is delivery to the end customer.  To this end, we designed different modeling scenarios and developed appropriate machine learning models for each scenario. 
-
-
+In this project, we propose several modeling scenarios based on the available data and the stage at which a firm wants to predict if a shipment will be delivered on time or not, using various supervised machine learning methods. Therefore, in this project, our target is a binary feature indicating that if a shipment meets its scheduled delivery or not. For this purpose, we utilized various time-independent predictors such as supplier location, shipment origin, shipment destination, shipment type, shipment material, the quantity of the shipment, etc. and time-dependent features such as different milestones indicating that if a shipment has met its scheduled date for that milestone or not. Logistics firms usually have a system to track their shipments from an origin to a destination. They also set several milestones and plan schedules for each milestone to track if a shipment will follow its scheduled plan (Otto, 2003). In this case study, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm with a large-scale supply chain network and gathers different time-independent and time-dependent features shipments. This firm sets ten milestones for tracking a shipment at different stages, from issuing a purchase order to delivery to the destination. For each milestone, the firm sets a scheduled date that expects the shipment to meet and collected an actualized date that the shipment met that milestone. The difference between the scheduled and actualized dates for each milestone shows that if the shipment has met that milestone or not. This study aims to predict if a shipment will meet the final milestone (milestone 10), which is delivery to the end customer.  To this end, we designed different modeling scenarios and developed appropriate machine learning models for each scenario. <br/>
+<br/>
+<br/>
 
 # 2. Introduction and Data Description
 
@@ -21,12 +21,12 @@ The satisfaction of delivery requirements and customers’ expectations is essen
 
 Weak delivery performance negatively affects customer satisfaction (Lim et al., 2001) and indicates low production efficiency and materials handling procedures. Poor delivery can cause several issues affecting other aspects of a company’s supply chain network, such as production delays due to material shortages, avoidable expedited shipping costs, and customer dissatisfaction (Otto Motors, 2017). Therefore, suppliers need to predict delivery time accurately and, according to this prediction, offer a precise delivery time to their customers. Also, they need to know which shipments might deliver delayed based on historical data. This helps them to notice the customer and provide more actual delivery time to the customer. Furthermore, on-time delivery is not just about customer satisfaction and deadlines. Not meeting on-time delivery can affect the entire business's functioning, including its financial stability (Lingaro Group,2020). 
 
-In this project, we want to utilize supervised machine learning techniques to predict whether a shipment will meet its scheduled delivery time or not. For this purpose, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm that has provided data for individual items being shipped through its supply chain network. The dataset contains more than 93,000 records and 137 features about the characteristics of shipments, origin, destination, and 10 milestones that the supplier has defined to track a shipment from an origin to a destination. These milestones show that if a shipment has met the scheduled plan of the firm. In other words, there are two dates (i.e., scheduled and actualized dates) for each milestone, indicating that if that milestone has been met or not. The 10th milestone is the shipment delivery to the final customer that we want to predict. Table 1 describes the most important features in this dataset.
+In this project, we want to utilize supervised machine learning techniques to predict whether a shipment will meet its scheduled delivery time or not. For this purpose, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm that has provided data for individual items being shipped through its supply chain network. The dataset contains more than 93,000 records and 137 features about the characteristics of shipments, origin, destination, and 10 milestones that the supplier has defined to track a shipment from an origin to a destination. These milestones show that if a shipment has met the scheduled plan of the firm. In other words, there are two dates (i.e., scheduled and actualized dates) for each milestone, indicating that if that milestone has been met or not. The 10th milestone is the shipment delivery to the final customer that we want to predict. Table 1 describes the most important features in this dataset.<br/>
+<br/>
 
 
 
-
-<h1 align="center">Table 1: Description of Features</h1>
+## <Table 1: Description of Features>
 
 | Feature  | Description |
 | ------------- | ------------- |
@@ -62,9 +62,9 @@ In this project, we want to utilize supervised machine learning techniques to pr
 | MILESTONE_9_SCHEDULE  | The scheduled date that the shipment will be at the destination’s supplier warehouse  |
 | MILESTONE_9_ACTUALIZED  | The actualized date that the shipment was at the destination’s supplier warehouse  |
 | MILESTONE_10_SCHEDULE  | The scheduled date that the shipment will be at the destination (The scheduled date of Material Received Report (MRR)) |
-| MILESTONE_10_ACTUALIZED | The actualized date that the shipment was at the destination (The actualized date of Material Received Report (MRR))  |
-
-
+| MILESTONE_10_ACTUALIZED | The actualized date that the shipment was at the destination (The actualized date of Material Received Report (MRR))  | <br/>
+<br/>
+<br/>
 
 
 
@@ -80,8 +80,9 @@ A review of the literature on shipment delivery time suggests that researchers h
 
 The first concerns the measurement object, which may be the number of orders, individual items or, order lines. The second concerns the time unit for measuring being on time. It could vary between the correct hour, day, week or within a specific time window. The third concerns the measurement point, i.e. where along the supply chain the order is considered to be delivered. The fourth concerns the comparison date for an actual delivery date in order to decide if it is on time or not. However, few studies have examined in any depth how delivery service performance should be managed, and almost none have focused on measuring on-time delivery.
 
-The growing popularity in the use and availability of Machine Learning and Deep Learning techniques have revolutionized the supply chain industry, shifting the focus on using these techniques to predict the shipment's success of on-time delivery more accurately in less time (Waller et al., 2013). Although using a deep learning technique might help in getting a better accuracy in our prediction, the tradeoff lies in the lack of interpretability of the model (Baryannis et al., 2019). In certain cases, it is important for a company to know which stage of the supply chain cycle has what level of impact on the overall outcome. This enables them to focus on making real-time changes to ensure product delivery is on-time. For this reason, we have chosen to use supervised machine learning techniques to predict our outcome of interest.
-
+The growing popularity in the use and availability of Machine Learning and Deep Learning techniques have revolutionized the supply chain industry, shifting the focus on using these techniques to predict the shipment's success of on-time delivery more accurately in less time (Waller et al., 2013). Although using a deep learning technique might help in getting a better accuracy in our prediction, the tradeoff lies in the lack of interpretability of the model (Baryannis et al., 2019). In certain cases, it is important for a company to know which stage of the supply chain cycle has what level of impact on the overall outcome. This enables them to focus on making real-time changes to ensure product delivery is on-time. For this reason, we have chosen to use supervised machine learning techniques to predict our outcome of interest.<br/>
+<br/>
+<br/>
 
 # 4. Data Preparation
 
@@ -126,31 +127,27 @@ We used various data visualizations to understand better the dataset (please see
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 1: Milestone 10 Distribution>**
-
-
-
-
-
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 1: Milestone 10 Distribution>** <br/>
+<br/>
+<br/>
 
 
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>**
-
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>** <br/>
+<br/>
+<br/>
 
 
 
 
 ### 4.5. Encoding Categorical Features & Scaling Numerical Features
 
-It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works.
-
-
+It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works. <br/>
+<br/>
+<br/>
 
 
 
