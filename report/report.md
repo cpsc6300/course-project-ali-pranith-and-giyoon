@@ -95,6 +95,8 @@ To clean up the dataset, we first dropped unnecessary columns (features) includi
 
 
 
+
+
 2. Fill null values
 
 Some important features, specifically the Milestone columns, have some Null values that can be effectively filled out using the values of other features. Since the Milestone features are the important features in this study, we don't want to easily drop all the records with missing values beacaue we will miss a lot of records. Therefore, after the consultation with the data analyst at the Firm, we found out the features containing the same value for the Milestones and use these duplicated features to fill out the Null values of the Milestone features. However, beacuse the Milestones 5 and 7 include too many Null values, we dropped those from the dataset.
@@ -106,9 +108,14 @@ Number of Null Values in MILESTONE_1_ACTUALIZED after cleaning up: 0
 
 
 
+
+
 3. Create new feature
 
 We created a binary feature for each milestone showing whether the milestone has been met or not. For example, "MILESTONE_1_meet" is 1 if it has been met (i.e., the "MILESTONE_1_ACTUALIZED" date is before than the "MILESTONE_1_SCHEDULE" date) and it is 0 if it has not been met. Also, we created a numerical feature for each milestone showing the number of days between the scheduled and actualized dates of meeting the milestone. For example, "MILESTONE_1_Diff" shows the difference (in days) between the "MILESTONE_1_ACTUALIZED" and "MILESTONE_1_SCHEDULED".The negative values of "MILESTONE_x_Diff" shows the number of days that the "Milestone x" has been met earlier and the positive values shows the number of delay days. Note that Milestone_10_meet is our target feature that we want to predict it using other milestones and other features in the dataset. We also created some additional features for the differences between the scheduled milestone 10 and the scheduled date of other milestones under the assumption that if we have more time between the scheduled dates of other milestones and milestone 10, the probability of meeting milestone 10 might be increased. Finally, we created some features showing the number of days between the scheduled milestone 10 and other important dates (i.e. LINE_SOP_DATE, LINE_RAS_DATE, and SCP_DATE) under the assumption that these might be informative for the prediction of meeting milestone 10.
+
+
+
 
 
 
@@ -130,9 +137,13 @@ Plot the Difference between Scheduled and Actualized Dates of Milestone 10
 
 
 
+
+
 5.Encoding Categorical Features & Scaling Numerical Features
 
 It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works.
+
+
 
 
 
@@ -448,6 +459,13 @@ Testing Accuracy: 0.979885803270179
 
 
 
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.99  |0.99  |0.99  |11427  |
+| 1  | 0.96  |0.96  |0.96  |3956  |
+
+
 
 
 
@@ -488,6 +506,12 @@ Training Accuracy: 0.8895492818226844
 Testing Accuracy: 0.8652281002355965
 
 
+
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.90  |0.92  |0.91  |13957  |
+| 1  | 0.75  |0.71  |0.73  |4719  |
 
 
 
