@@ -153,6 +153,7 @@ It should be noted that according to the performance metrics, our final model is
 # Modeling Approach
 
 For the prediction of meeting Milestone 10, we followed 3 different modeling scenarios:
+
 Scenario 1: We are at the stage after Milestone 9 and know whether the Milestones 1 through 9 have been met or not.
 
 Scenario 2: We are at the early stage before meeting any milestones. Therefore, in this scenario, we assumed that we do not have any information on whether Milestones 1 trough 9 will be met or not.
