@@ -5,7 +5,7 @@
 ### Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
 ### Date: December 10th, 2020
 
-# Problem Statement and Motivation
+# 1. Problem Statement and Motivation
 
 One of the most challenging problems in logistics and supply chain network is meeting the scheduled shipment delivery. A firm has limited time and budget and needs to receive and deliver its shipments on time. The common issues negatively affecting deliveries' timeliness are poor shipment delivery planning, lading errors, and attaching incorrect documentation (Lingaro Group,2020). There are many ways to improve delivery times. Firms may achieve on-time deliveries by planning proper schedules in line with capacities, adequate tracking and collaborating with suppliers, accurate forecasting and monitoring efficiency, and integrating and controlling systems. 
 
@@ -14,7 +14,7 @@ Machine Learning methods can considerably help suppliers with utilizing historic
 In this project, we propose several modeling scenarios based on the available data and the stage at which a firm wants to predict if a shipment will be delivered on time or not using various supervised machine learning methods. Therefore, in this project, our target is a binary feature indicating that if a shipment meets its scheduled delivery or not. For this purpose, we utilized various time-independent predictors such as supplier location, shipment origin, shipment destination, shipment type, shipment material, the quantity of the shipment, etc. and time-dependent features such as different milestones indicating that if a shipment has met its scheduled date for that milestone or not. Logistics firms usually have a system to track their shipments from an origin to a destination. They also set several milestones and plan schedules for each milestone to track if a shipment will follow its scheduled plan. In this case study, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm with a large-scale supply chain network and gathers different time-independent and time-dependent features shipments. This firm sets ten milestones for tracking a shipment at different stages, from issuing a purchase order to delivery to the destination. For each milestone, the firm sets a scheduled date that expects the shipment to meet and collected an actualized date that the shipment met that milestone. The difference between the scheduled and actualized dates for each milestone shows that if the shipment has met that milestone or not. This study aims to predict if a shipment will meet the final milestone (milestone 10), which is delivery to the end customer.  To this end, we designed different modeling scenarios and developed appropriate machine learning models for each scenario. 
 
 
-# Introduction and Data Description
+# 2. Introduction and Data Description
 
 The satisfaction of delivery requirements and customers’ expectations is essential for every business. Four of the top six challenges reported by the 2020 MHI Annual Industry Report are related to higher customer expectations and faster delivery. Increasing attention is given to on-time delivery of goods in the logistics and distribution industry. With uncertainties in customer demands, on-time deliveries cannot be ensured frequently (Zhang et al., 2016). On-time delivery is defined as a process and supply chain efficiency measure, which measures the number of finished goods or services delivered to customers on time and in full. It helps determine how efficiently we meet our customer's or agreed deadlines (Lean Manufacturing & Operations Management).
 
@@ -73,7 +73,7 @@ In this project, we want to utilize supervised machine learning techniques to pr
 
 
 
-# Literature Review and Related Work 
+# 3. Literature Review and Related Work 
 
 The concept of on-time delivery measures performance regarding perfact delivery and customer service level with delivery reliability and order completeness(Gunasekaran et al., 2004). On-time delivery, lead time length, delivery reliability, and inventory service level are examples of common delivery service performance variables in dyadic customer–supplier interfaces. Among them, on-time delivery is often considered the most important performance variable when orders are seldom changed in the supply chain(Keebler et al.1999, Stock and Lambert 2001). Most companies, regardless firm size and industry, normally have on-time as in important supply perfromnance metric. When defining on-time delivery, there are several different issues that firms need to consider(Forslund and Jonsson 2007). 
 
@@ -81,9 +81,9 @@ The first concerns the measurement object, which may be the number of orders, in
 
 
 
-# Data Preparation
+# 4. Data Preparation
 
-### Drop either the unncessary columns or the columns with too many Null values 
+### 4.1. Drop either the unncessary columns or the columns with too many Null values 
 
 To clean up the dataset, we first dropped unnecessary columns (features) including noninformative features (e.g., the description columns), the columns containing the same value for all the records (e.g., SHIP_GROUP_TYPE which has the same value for all the records), and duplicated features (e.g., the columns containing the same value for every record such as the columns of REV and IN_DOC_REV_PK). Also, we dropped the columns with too many null values.
 
@@ -92,7 +92,7 @@ To clean up the dataset, we first dropped unnecessary columns (features) includi
 
 
 
-### Fill null values
+### 4.2. Fill null values
 
 Some important features, specifically the Milestone columns, have some Null values that can be effectively filled out using the values of other features. Since the Milestone features are the important features in this study, we don't want to easily drop all the records with missing values beacaue we will miss a lot of records. Therefore, after the consultation with the data analyst at the Firm, we found out the features containing the same value for the Milestones and use these duplicated features to fill out the Null values of the Milestone features. However, beacuse the Milestones 5 and 7 include too many Null values, we dropped those from the dataset.
 
@@ -105,7 +105,7 @@ Number of Null Values in MILESTONE_1_ACTUALIZED after cleaning up: 0
 
 
 
-### Create new feature
+### 4.3. Create new features
 
 We created a binary feature for each milestone showing whether the milestone has been met or not. For example, "MILESTONE_1_meet" is 1 if it has been met (i.e., the "MILESTONE_1_ACTUALIZED" date is before than the "MILESTONE_1_SCHEDULE" date) and it is 0 if it has not been met. Also, we created a numerical feature for each milestone showing the number of days between the scheduled and actualized dates of meeting the milestone. For example, "MILESTONE_1_Diff" shows the difference (in days) between the "MILESTONE_1_ACTUALIZED" and "MILESTONE_1_SCHEDULED".The negative values of "MILESTONE_x_Diff" shows the number of days that the "Milestone x" has been met earlier and the positive values shows the number of delay days. Note that Milestone_10_meet is our target feature that we want to predict it using other milestones and other features in the dataset. 
 
@@ -116,7 +116,7 @@ We also created some additional features for the differences between the schedul
 
 
 
-### Data Visualization
+### 4.4. Data Visualization
 
 Milestone 10 is the target feature that we want to predict using other features.
 
@@ -146,7 +146,7 @@ Because we already see in figure 1, figure2 also shows that Milestone_10 delayed
 
 
 
-### Encoding Categorical Features & Scaling Numerical Features
+### 4.5. Encoding Categorical Features & Scaling Numerical Features
 
 It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works.
 
@@ -157,7 +157,7 @@ It should be noted that according to the performance metrics, our final model is
 
 
 
-# Modeling Approach
+# 5. Modeling Approach
 
 For the prediction of meeting Milestone 10, we followed 3 different modeling scenarios:
 
