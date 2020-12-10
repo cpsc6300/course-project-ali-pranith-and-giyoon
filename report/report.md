@@ -121,9 +121,7 @@ We also created some additional features for the differences between the schedul
 Milestone 10 is the target feature that we want to predict using other features.
 
 
-<p align="center">
  ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
-</p>
 
 **<Figure 1: Milestone 10 Distribution>**
 
@@ -197,7 +195,7 @@ Next important feature is NIN_NUMBER, which is the line number in the supply cha
 
 ![figure2](https://user-images.githubusercontent.com/61207345/101670361-0eb4e500-3a21-11eb-929a-dade35cfce64.png)
 
-**<Figure4: Confusion Matrix>**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure4: Confusion Matrix>**
 
 
 
