@@ -6,7 +6,6 @@
 ### Date: December 10th, 2020
 
 # Probelm Statement and Motivation
-This should be a brief and self-contained decription of the problem that your project aims to solve and what motivated you to solve this problem.
 
 One of the most challenging problems in a supply chain network is meeting the scheduled shipment delivery. A firm has a limited time and budget and needs to receive its shipment on time. For example, the common issues that affect the timeliness of deliveries include poor shipment delivery planning, lading errors, and attaching incorrect documentation(Lingaro Group,2020).
 
@@ -17,7 +16,6 @@ Machine Learning methods can considerably help with this issue as they can utili
 Here is our resarch question: What factors are useful/important for predicting whether a shipment is going to be on-time? 
 
 # Introduction and Data Description
-Description of relevant knowledge. Why is this problem important? Why is it challenging? Introduce the motivations for the project question and how that question was defined through preliminary EDA.
 
 Meeting delivery requirements and customers’ expectations is very important for every business. In fact, 4 of the top 6 challenges reported by 2020 MHI Annual Industry Report are related to higher customer expectations and faster delivery. Increasing attention is given to on-time delivery of goods in the logistics and distribution industry. With uncertainties in customer demands, on-time deliveries cannot be ensured frequently (Zhang et al., 2016). On time delivery is defined as a measure of process and supply chain efficiency which measures the amount of finish goods or services delivered to customers on time and in full. It helps determine how efficiently we are meeting our customer's or agreed deadlines[3].
 
@@ -78,7 +76,6 @@ Table 1: Description of Features
 
 
 # Literature Review and Related Work 
-This could include noting any key papers, texts, or websites that you have used to develop your modeling approach, as well as what others have done on this problem in the past. You must properly credit sources.
 
 The concept of on-time delivery measures performance regarding perfact delivery and customer service level with delivery reliability and order completeness(Gunasekaran et al., 2004). On-time delivery, lead time length, delivery reliability, and inventory service level are examples of common delivery service performance variables in dyadic customer–supplier interfaces. Among them, on-time delivery is often considered the most important performance variable when orders are seldom changed in the supply chain(Keebler et al.1999, Stock and Lambert 2001). Most companies, regardless firm size and industry, normally have on-time as in important supply perfromnance metric. When defining on-time delivery, there are several different issues that firms need to consider(Forslund and Jonsson 2007). 
 
@@ -123,13 +120,14 @@ We created a binary feature for each milestone showing whether the milestone has
 
 Milestone 10 is the target feature that we want to predict using other features.
 
+Figure 1: Milestone 10 Distribution
+
 ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
 
 
 
 
-
-Plot the Difference between Scheduled and Actualized Dates of Milestone 10
+Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10
 
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
 
@@ -168,6 +166,7 @@ Scenario 3: We supposed that we do not have any information on meeting the Miles
 
 In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
+Figure3: Feature Selection
 ![figure1](https://user-images.githubusercontent.com/61207345/101667738-b16b6480-3a1d-11eb-976d-b0db726cc1dc.png)
 
 
@@ -178,6 +177,7 @@ selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_
 As seen in the above plot, Milestone_9_meet has the most important feature 
 
 
+Figure4: Confusion Matrix
 ![figure2](https://user-images.githubusercontent.com/61207345/101670361-0eb4e500-3a21-11eb-929a-dade35cfce64.png)
 
 
@@ -189,7 +189,7 @@ Testing Accuracy: 0.9169589534553039
 
 
 
-Classification Report: 
+Table 2: Classification Report 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.96  |0.92  |0.94  |7423  |
@@ -199,10 +199,12 @@ Classification Report:
 
 
 
+
 ### Model 2: Using difference features for meeting Milestones 1-9
 
 In Model 2, instead of using the binary features for meeting the milestones 1 through 9, we used the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
+Figure5: Feature Selection
 ![figure3](https://user-images.githubusercontent.com/61207345/101671314-55570f00-3a22-11eb-8930-393fb618c58d.png)
 
 
@@ -215,6 +217,7 @@ selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_
 As seen in the above plot, Milestone_9_Diff has the most important feature 
 
 
+Figure6: Confusion Matrix
 ![figure4](https://user-images.githubusercontent.com/61207345/101671417-7881be80-3a22-11eb-9c93-37dda274cc1d.png)
 
 
@@ -226,7 +229,7 @@ Testing Accuracy: 0.9879609441653238
 
 
 
-Classification Report: 
+Table 3: Classification Report 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |7423  |
@@ -241,18 +244,13 @@ In Model 3, to increase the size of training and test datasets, we removed the f
 
 
 
+#### Model 3-1 Random Forest
 
 
-#### Correlation Matrix
-
-![figure6](https://user-images.githubusercontent.com/61207345/101671610-b54db580-3a22-11eb-9acc-112772bdcf62.png)
-
-
-There is not vairable which is problematic because of high correlation with other variables. 
+Figure7: Feature Selection
+![figure5](https://user-images.githubusercontent.com/61207345/101778115-6c990980-3ac1-11eb-93a3-ab8dcf3d355c.png)
 
 
-
-          
 selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 
                      'MILESTONE_2_Diff', 'MILESTONE_3_Diff', 'MILESTONE_4_Diff', 'MILESTONE_9_Diff', 'MILESTONE_10_meet']
 
@@ -260,10 +258,18 @@ As seen in the above plot, Milestone_9_Diff has the most important feature
 
 
 
-#### Model 3-1 Random Forest
+#### Correlation Matrix
 
 
+Figure8: Correlation Matrix
 
+![figure6](https://user-images.githubusercontent.com/61207345/101671610-b54db580-3a22-11eb-9acc-112772bdcf62.png)
+
+
+There is not vairable which is problematic because of high correlation with other variables
+
+
+Figure9: Confusion Matrix
 ![figure7](https://user-images.githubusercontent.com/61207345/101671952-37d67500-3a23-11eb-833a-1df006266c8d.png)
 
 
@@ -277,7 +283,7 @@ Testing Accuracy: 0.9900937285681628
 
 
 
-Classification Report: 
+Table 4: Classification Report 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
@@ -294,7 +300,7 @@ The best tuned hyperparameters are:
 
 The Cross Validated Accuracy for the best Model is: 0.9874261764145551
 
-
+Figure10: Confusion Matrix
 ![figure8](https://user-images.githubusercontent.com/61207345/101672144-7d933d80-3a23-11eb-9532-1e26c7e79a1c.png)
 
  
@@ -307,7 +313,7 @@ Testing Accuracy: 0.9887982930732302
 
 
 
-Classification Report: 
+Table 5: Classification Report 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
@@ -325,7 +331,7 @@ The best tuned hyperparameters are:
 The Cross Validated Accuracy for the best Model is:
 0.9225185749666603
 
-
+Figure11: Confusion Matrix
 ![figure9](https://user-images.githubusercontent.com/61207345/101672312-baf7cb00-3a23-11eb-8b7b-bf0e543430f7.png)
 
 
@@ -336,7 +342,7 @@ Training Accuracy: 0.9232044198895027
 
 Testing Accuracy: 0.9225786786557951
 
-Classification Report: 
+Table 6: Classification Report 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
@@ -354,7 +360,7 @@ The best tuned hyperparameters are: {'n_neighbors': 1}
 The Cross Validated Accuracy for the best Model is: 0.9784911411697467
           
 
-
+Figure12: Confusion Matrix
 ![figure10](https://user-images.githubusercontent.com/61207345/101672458-e37fc500-3a23-11eb-919b-1fd937592e2e.png)
 
 
@@ -367,7 +373,7 @@ Testing Accuracy: 0.9809494780156977
 
 
 
-Classification Report: 
+Table 6: Classification Report 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
@@ -384,6 +390,7 @@ The best tuned hyperparameters are: {'C': 10, 'penalty': 'l1'}
 The Cross Validated Accuracy for the best Model is: 0.9078491141169747
 
 
+Figure13: Confusion Matrix
 ![figure11](https://user-images.githubusercontent.com/61207345/101672574-0a3dfb80-3a24-11eb-8448-108471c534e8.png)
 
 Mean Cross-Validated Accuracy: 0.9081731153287536
@@ -394,8 +401,7 @@ Testing Accuracy: 0.9075668673321649
 
 
 
-
-Classification Report: 
+Table 7: Classification Report 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.95  |0.92  |0.94  |9565  |
@@ -409,9 +415,11 @@ Classification Report:
 #### Comparions of Models
 
 
+Figure 14: Comparisions of Models
 ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
 
-Classification Report: 
+
+Table 8: Comparisions of Models 
 | Method  | Training Accuracy |Testing Accuracy |Mean Cross Validation Accuracy |
 | ------------- | ------------- |------------- |------------- |
 | Random Forest | 0.9945  |0.9901  |0.9889 |
@@ -436,6 +444,7 @@ In Scenario 2, we supposed that we are at the early stage before meeting any mil
 
 Radom Forest --- Selecting Features
 
+Figure 15:  Feature Selection
 ![figure13](https://user-images.githubusercontent.com/61207345/101673068-a7992f80-3a24-11eb-9f37-abb7dd8c2ace.png)
 
 
@@ -450,6 +459,7 @@ The best tuned hyperparameters are: {'max_depth': 20, 'max_features': 7, 'min_sa
 The Cross Validated Accuracy for the best Random Forest Model is: 0.9775658182879946
 
 
+Figure 16: Confusion Matrix
 ![figure14](https://user-images.githubusercontent.com/61207345/101673194-dca58200-3a24-11eb-9443-19305a803e0e.png)
 
 
@@ -461,7 +471,7 @@ Testing Accuracy: 0.979885803270179
 
 
 
-Classification Report: 
+Table 9: Classification Report: 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |11427  |
@@ -483,6 +493,8 @@ In Scenario 3, we supposed that we do not have any information on meeting the mi
 
 Radom Forest --- Selecting Features
 
+
+Figure 17: Feature Selection
 ![figure15](https://user-images.githubusercontent.com/61207345/101673279-f6df6000-3a24-11eb-90d6-a064dae0f828.png)
 
 selected_features = ['REV', 'SUPPLIER_LOCATION', 'LINE_NUMBER', 'DESTINATION', 'PO_PRIME_ID', 'ITEM_PRIME_ID', 
@@ -497,7 +509,7 @@ The Cross Validated Accuracy for the best Random Forest Model is: 0.864249093075
 
 
 
-
+Figure 18: Confusion Matrix
 ![figure16](https://user-images.githubusercontent.com/61207345/101673442-2bebb280-3a25-11eb-9c45-e7ab403a9971.png)
 
 
@@ -509,7 +521,7 @@ Testing Accuracy: 0.8652281002355965
 
 
 
-Classification Report: 
+Table 10: Classification Report: 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.90  |0.92  |0.91  |13957  |
@@ -519,6 +531,9 @@ Classification Report:
 
 
 ## Sensitivity analysis on the effects of training % vs. testing % on the Random Forest Model
+
+
+Figure 19: Sensitivity Analysis
 
 ![figure17](https://user-images.githubusercontent.com/61207345/101673739-8e44b300-3a25-11eb-8863-36e7566d3249.png)
 
