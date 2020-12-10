@@ -169,9 +169,9 @@ Scenario 3: We supposed that we do not have any information on meeting the Miles
 
 
 
-## Scenario 1: We are at the stage after Milestone 9
+## 5.1. Scenario 1: We are at the stage after Milestone 9
 
-### Model 1: Using binary features for meeting the Milestones 1-9
+### 5.1.1. Using binary features for meeting the Milestones 1-9
 
 In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
@@ -229,7 +229,7 @@ Also, other numbers including Recall, F1 Score are also pretty good
 
 
 
-### Model 2: Using difference features for meeting Milestones 1-9
+### 5.1.2. Using difference features for meeting Milestones 1-9
 
 In Model 2, instead of using the binary features for meeting the milestones 1 through 9, we used the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
@@ -285,13 +285,13 @@ Also, other numbers including Recall, F1 Score are also much more higher than mo
 
 
 
-### Model 3: Dropping Milestones 6 and 8 & Compare the Performance of Various Classification Methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression
+### 5.1.3. Dropping Milestones 6 and 8 & Compare the Performance of Various Classification Methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression
 
 In Model 3, to increase the size of training and test datasets, we removed the features related to the Milestones 6 and 8 as they have much more Null values compared to other features. Because we want to run different classification methods and compare their performance metrics, we performed a correlation matrix beteen features and selected the highest correlated features with the target feature as the most important features. Then, we tuned the hyperparameters of several classification methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression. Finally, we trained the tuned models, obtained the performance metrics using test dataset, and compare the results.
 
 
 
-#### Model 3-1 Random Forest
+#### 5.1.3.2. Random Forest
 
 
 ![figure5](https://user-images.githubusercontent.com/61207345/101778115-6c990980-3ac1-11eb-93a3-ab8dcf3d355c.png)
@@ -308,7 +308,7 @@ As seen in the above plot, Milestone_9_Diff has the most important feature
 
 
 
-#### Correlation Matrix
+#### 5.1.3.1. Correlation Matrix
 
 
 ![figure6](https://user-images.githubusercontent.com/61207345/101671610-b54db580-3a22-11eb-9acc-112772bdcf62.png)
@@ -348,7 +348,7 @@ Also, other numbers including Recall, F1 Score are also much more higher than mo
 
 
 
-#### Model 3-2 Decision Tree
+#### 5.1.3.3. Decision Tree
 
 The best tuned hyperparameters are:
 {'max_depth': 15, 'max_features': 9, 'min_samples_leaf': 1, 'min_samples_split': 3}
@@ -384,7 +384,7 @@ Also, other numbers including Recall, F1 Score are also much more higher than mo
  
  
  
-#### Model 3-3 SVM
+#### 5.1.3.4. SVM
 
 The best tuned hyperparameters are:
 {'C': 50, 'kernel': 'rbf'}
@@ -422,7 +422,7 @@ Also, other numbers including Recall, F1 Score are also much more higher than mo
 
 
 
-#### Model 3-4 KNN
+#### 5.1.3.5. KNN
 
 The best tuned hyperparameters are: {'n_neighbors': 1}
 
@@ -458,7 +458,7 @@ High precision relates to the low false positive rate. We have got 0.90 precisio
 
 
 
-#### Model 3-5 Logitstic Regression
+#### 5.1.3.6. Logitstic Regression
 
 The best tuned hyperparameters are: {'C': 10, 'penalty': 'l1'}
 
@@ -494,16 +494,16 @@ Thus, logitstic model shows poor performance and it is not recommened to use log
 
 
 
-#### Comparions of Models
+#### 5.1.3.7. Comparison of Models
 
 ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
 
-**<Figure 14: Comparisions of Models>**
+**<Figure 14: Comparison of Models>**
 
 
 
 
-**Table 8: Comparisions of Models** 
+**Table 8: Comparison of Models** 
 | Method  | Training Accuracy |Testing Accuracy |Mean Cross Validation Accuracy |
 | ------------- | ------------- |------------- |------------- |
 | Random Forest | 0.9945  |0.9901  |0.9889 |
@@ -513,7 +513,7 @@ Thus, logitstic model shows poor performance and it is not recommened to use log
 | Logitstic Regression  | 0.9084  |0.9076  |0.9082 |
 
 
-From the comparisions models, we found that Random Forest has the highest accuracy (over 98%) and Logistic Rgression has the lowest accuracy (under92%). 
+From the comparison of models, we found that Random Forest has the highest accuracy (over 98%) and Logistic Rgression has the lowest accuracy (under92%). 
 
 Thus, in scenario 1, it is recommened to use Random Forest model. 
 
@@ -521,7 +521,7 @@ Thus, in scenario 1, it is recommened to use Random Forest model.
 
 
 
-## Scenario 2: We are at the early stage before meeting any Milestone
+## 5.2. Scenario 2: We are at the early stage before meeting any Milestone
 
 In Scenario 2, we supposed that we are at the early stage before meeting any milestones. Therefore, there is no information on meeting the Milestones 1 through 9. However, we can include some features showing the difference between the scheduled date of milestone 10 and the scheduled dates of other milestones because the scheduled date of all the Milestones are set at the early stage though we don't know whether these scheduled dates will be met or not. Additionally, we used some new features showing the difference between the scheduled date of milestone 10 and some given dates such as Line_SOP date, Line_RAS date, and SCP date. Because the comparison of the several classification methods in the previous section showed that the Random Forest Model results in better performance, we only run a Random Forest model for this scenario. The importance obtained from the Random Forest shows that while the differences between the scheduled date of milestone 10 and the scheduled dates of other milestones are not important, the differences from Line_SOP date, Line_RAS date, and SCP date are very important.
 
@@ -577,7 +577,7 @@ Also, other numbers including Recall, F1 Score are also similar with scenario 1 
 
 
 
-## Sceario 3: What if we don't have any time-dependent data?
+## 5.3. Sceario 3: What if we don't have any time-dependent data?
 
 In Scenario 3, we supposed that we do not have any information on meeting the milestones 1 through 9 as well as on other time-dependent features such as Line_SOP_date, Line_RAS_date, and SCP date. In other words, in this scenario, we supposed that there is no given date in the dataset. Therefore, we only used the time-independent features such as supplier location, line number, and shipment point to predict meeting Milestone 10. We want to know how much time-independent features are able to predict whether the Milestone 10 will be met or not. Again, we only developed a Random Forest model.
 
@@ -630,7 +630,7 @@ Also, other numbers including Recall, F1 Score are also is less than  scenario 1
 
 
 
-## Sensitivity analysis on the effects of training % vs. testing % on the Random Forest Model
+## 5.4. Sensitivity analysis on the effects of training % vs. testing % on the Random Forest Model
 
 
 ![figure17](https://user-images.githubusercontent.com/61207345/101673739-8e44b300-3a25-11eb-8863-36e7566d3249.png)
@@ -655,7 +655,7 @@ The maximum testing accuracy is 0.8653887342043264 obtained from the test sample
 
 
 
-# Project Trajectory, Results and Discussion 
+# 6. Project Trajectory, Results and Discussion 
 
 In this project, we developed a machine learning model to predict whether a shipment delivery will be on time or not. On-time delivery is one of the biggest concerns of a supplier affecting customer satisfaction considerably. Therefore, a supplier wants to have an accurate model predicting if a shipment might be delivered with a delay. This model helps the supplier adjust its delivery schedule and logistics processes to reduce delivery delays for the shipments that are likely to delay delivery. For this purpose, we collected data from a firm’s large-scale supply chain network containing different features about the shipment. This firm sets ten milestones for tracking a shipment at different stages from the purchase order issue to delivery to the destination. For each milestone, the firm defines two dates: a scheduled date that the firm expects the shipment will meet and an actualized date that the shipment was met. The difference between the scheduled and actualized dates indicates that if the shipment has met that milestone or not. This study aims to predict if a shipment will meet the final milestone (milestone 10) or not.  To this end, we designed different scenarios and developed an appropriate machine learning model for each scenario. 
 
@@ -669,7 +669,7 @@ In the second scenario, we supposed that we are at the early stage before meetin
 In the last scenario, we supposed that the firm does not track a shipment at all but still wants to know if the shipment will be delivered to the destination on time or not. In other words, the firm has neither information on meeting the milestones 1 through 9 nor on other time-dependent features such as Line_SOP_date, Line_RAS_date, and SCP date. Hence in this scenario, we supposed that the firm has no time-dependent features and wants to use only time-independent features such as supplier location, line number, shipment point, material type, quantity ordered, etc., to predict if Milestone 10 will be met on time. Again, we developed a random forest model, and the results showed that the model could predict meeting milestone 10 with 88.9% of cross-validation accuracy, which is a reasonable accuracy.
 
 
-# Conclusions and Future Work
+# 7. Conclusions and Future Work
 This project developed supervised machine learning models to predict if a shipment delivery will be on time in logistics. On-time delivery is one of the most challenging logistics problems. All the suppliers and third-party logistics companies try to predict delivery time accurately and schedule their shipment delivery accordingly. We followed several modeling scenarios depending on if the firms track a shipment at different delivery stages and how much information it has on shipment delivery. In the first scenario, we showed that if the firm tracks its shipments at different stages (milestones), it will predict if the delivery to the end-user will be on time or not with high accuracy. This model requires a firm to have a tracking system to collect data from a shipment at different stages and has a rich shipment database and information technology infrastructures. However, many logistics firms might not have access to this information; therefore, in the second scenario, we developed a supervised machine learning model to predict if a shipment will be delivered on time without tracking shipment information at different stages. In this model, we only used the firm's scheduled dates for shipment delivery and other features such as destination, origin, shipment type, material type, the quantity of the shipment, etc., to predict if the delivery will be on time. The results showed that the model is still able to predict meeting on-time delivery with high accuracies. Finally, in the last modeling scenario, we assumed that the firm does not have any schedule for the shipment delivery at different stages and only knows if the shipment will arrive on time to the final destination. For this purpose, we developed a machine learning model based on time-independent features. The results showed that we could predict if a shipment delivery will be on time with about 89% accuracy, which is reasonable accuracy in this case.
 
 The results show that the use of supervised machine learning models can significantly help a logistics firm to predict if the delivery will be met its scheduled date or not. As a result, the firm can predict the shipment that is more likely to have a delivery delay and adjust its schedule. Also, for future shipments, the firm can set the scheduled dates of similar shipments more accurately. This significantly reduces the negative consequences of delayed delivery and increases customer satisfaction as on-time delivery is one of the most important criteria influencing user satisfaction in logistics and supply chain networks.
@@ -677,7 +677,7 @@ The results show that the use of supervised machine learning models can signific
 For future work, several modeling and technical approaches can be considered. First, in this project, we only predict if a shipment will meet its scheduled delivery time or not. In other words, the target feature was binary in this study; however, in the future, we can consider a numerical target feature showing the amount of delay in days. In other words, instead of using a binary feature, we might use a numerical feature measuring the difference between the scheduled and actualized delivery dates in days. Second, in this study, we applied simple methods such as calculating the correlation between the target feature and predictors and the importance of features obtained from the random forest to select the most significant features. We can use more reliable feature selection methods such as forward feature selection, backward feature selection, or information gain to select the features in future work. Finally, we applied a simple encoder for encoding the categorical features that might affect the performance of some machine learning techniques such as SVM and logistics regression. Therefore, in future work, we can use more reliable encoding techniques such as one-hot encoding.  
 
 
-# References:
+# 8. References:
 This could include the revised key papers, texts, or websites that you may use to develop your project.
 
 [1] Otto Motors (2017), Being on Time, Every Time: On-Time Delivery & Customer Satisfaction, https://ottomotors.com/blog/on-time-delivery-manufacturing
