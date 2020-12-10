@@ -121,9 +121,13 @@ We also created some additional features for the differences between the schedul
 
 Milestone 10 is the target feature that we want to predict using other features.
 
-Figure 1: Milestone 10 Distribution
+
 
 ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
+Figure 1: Milestone 10 Distribution
+
+
+
 
 The number of zero of "Milestone_10_Meet" is much more than of 1, which means that the number of days that  Milestone 10 didn't meet schedule on time is more than on-time schedule.
 
@@ -132,9 +136,10 @@ The number of zero of "Milestone_10_Meet" is much more than of 1, which means th
 
 
 
-Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10
 
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
+Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10
+
 
 
 Because we already see in figure 1, figure2 also shows that Milestone_10 delayed a lot and its delay is mainly distributed from 0 to 1000 delay days.
@@ -171,8 +176,9 @@ Scenario 3: We supposed that we do not have any information on meeting the Miles
 
 In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
-Figure3: Feature Selection
+
 ![figure1](https://user-images.githubusercontent.com/61207345/101667738-b16b6480-3a1d-11eb-976d-b0db726cc1dc.png)
+Figure3: Feature Selection
 
 
 From Random Forest, we selected features
@@ -185,8 +191,11 @@ Next important feature is NIN_NUMBER, which is the line number in the supply cha
 
 
 
-Figure4: Confusion Matrix
+
 ![figure2](https://user-images.githubusercontent.com/61207345/101670361-0eb4e500-3a21-11eb-929a-dade35cfce64.png)
+Figure4: Confusion Matrix
+
+
 
 
 Mean Cross-Validated Accuracy: 0.9142750054122457
@@ -223,8 +232,10 @@ Also, other numbers including Recall, F1 Score are also pretty good
 
 In Model 2, instead of using the binary features for meeting the milestones 1 through 9, we used the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
 
-Figure5: Feature Selection
+
 ![figure3](https://user-images.githubusercontent.com/61207345/101671314-55570f00-3a22-11eb-8930-393fb618c58d.png)
+Figure5: Feature Selection
+
 
 
 From Random Forest, we selected features
@@ -237,8 +248,11 @@ As seen in the above plot, Milestone_9_Diff has the most important feature
 
 
 
-Figure6: Confusion Matrix
+
 ![figure4](https://user-images.githubusercontent.com/61207345/101671417-7881be80-3a22-11eb-9c93-37dda274cc1d.png)
+Figure6: Confusion Matrix
+
+
 
 
 Mean Cross-Validated Accuracy: 0.987130651061792
@@ -248,6 +262,9 @@ Training Accuracy: 0.9942881520631385
 Testing Accuracy: 0.9879609441653238
 
 When using the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9 (instead of using the binary features for meeting the milestones 1 through 9 in model 1), we found that all accuracy increased to 98%.
+
+
+
 
 
 Table 3: Classification Report 
@@ -263,6 +280,8 @@ Also, other numbers including Recall, F1 Score are also much more higher than mo
 
 
 
+
+
 ### Model 3: Dropping Milestones 6 and 8 & Compare the Performance of Various Classification Methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression
 
 In Model 3, to increase the size of training and test datasets, we removed the features related to the Milestones 6 and 8 as they have much more Null values compared to other features. Because we want to run different classification methods and compare their performance metrics, we performed a correlation matrix beteen features and selected the highest correlated features with the target feature as the most important features. Then, we tuned the hyperparameters of several classification methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression. Finally, we trained the tuned models, obtained the performance metrics using test dataset, and compare the results.
@@ -272,8 +291,9 @@ In Model 3, to increase the size of training and test datasets, we removed the f
 #### Model 3-1 Random Forest
 
 
-Figure7: Feature Selection
 ![figure5](https://user-images.githubusercontent.com/61207345/101778115-6c990980-3ac1-11eb-93a3-ab8dcf3d355c.png)
+Figure7: Feature Selection
+
 
 
 selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 
@@ -283,20 +303,21 @@ As seen in the above plot, Milestone_9_Diff has the most important feature
 
 
 
+
 #### Correlation Matrix
 
 
+![figure6](https://user-images.githubusercontent.com/61207345/101671610-b54db580-3a22-11eb-9acc-112772bdcf62.png)
 Figure8: Correlation Matrix
 
-![figure6](https://user-images.githubusercontent.com/61207345/101671610-b54db580-3a22-11eb-9acc-112772bdcf62.png)
 
 
 There is not vairable which is problematic because of high correlation with other variables
 
 
-Figure9: Confusion Matrix
-![figure7](https://user-images.githubusercontent.com/61207345/101671952-37d67500-3a23-11eb-833a-1df006266c8d.png)
 
+![figure7](https://user-images.githubusercontent.com/61207345/101671952-37d67500-3a23-11eb-833a-1df006266c8d.png)
+Figure9: Confusion Matrix
 
 
 
@@ -328,8 +349,9 @@ The best tuned hyperparameters are:
 
 The Cross Validated Accuracy for the best Model is: 0.9874261764145551
 
-Figure10: Confusion Matrix
+
 ![figure8](https://user-images.githubusercontent.com/61207345/101672144-7d933d80-3a23-11eb-9532-1e26c7e79a1c.png)
+Figure10: Confusion Matrix
 
  
  
@@ -363,8 +385,9 @@ The best tuned hyperparameters are:
 The Cross Validated Accuracy for the best Model is:
 0.9225185749666603
 
-Figure11: Confusion Matrix
+
 ![figure9](https://user-images.githubusercontent.com/61207345/101672312-baf7cb00-3a23-11eb-8b7b-bf0e543430f7.png)
+Figure11: Confusion Matrix
 
 
 
@@ -396,8 +419,10 @@ The best tuned hyperparameters are: {'n_neighbors': 1}
 The Cross Validated Accuracy for the best Model is: 0.9784911411697467
           
 
-Figure12: Confusion Matrix
+
 ![figure10](https://user-images.githubusercontent.com/61207345/101672458-e37fc500-3a23-11eb-919b-1fd937592e2e.png)
+Figure12: Confusion Matrix
+
 
 
 Mean Cross-Validated Accuracy: 0.97883402354555
@@ -429,8 +454,9 @@ The best tuned hyperparameters are: {'C': 10, 'penalty': 'l1'}
 The Cross Validated Accuracy for the best Model is: 0.9078491141169747
 
 
-Figure13: Confusion Matrix
 ![figure11](https://user-images.githubusercontent.com/61207345/101672574-0a3dfb80-3a24-11eb-8448-108471c534e8.png)
+Figure13: Confusion Matrix
+
 
 Mean Cross-Validated Accuracy: 0.9081731153287536
 
@@ -458,10 +484,8 @@ Thus, logitstic model shows poor performance and it is not recommened to use log
 
 #### Comparions of Models
 
-
-Figure 14: Comparisions of Models
-
 ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
+Figure 14: Comparisions of Models
 
 
 
@@ -490,8 +514,10 @@ In Scenario 2, we supposed that we are at the early stage before meeting any mil
 
 Radom Forest --- Selecting Features
 
-Figure 15:  Feature Selection
+
 ![figure13](https://user-images.githubusercontent.com/61207345/101673068-a7992f80-3a24-11eb-9f37-abb7dd8c2ace.png)
+Figure 15:  Feature Selection
+
 
 
 selected_features = ['REV', 'SUPPLIER_LOCATION', 'LINE_NUMBER', 'PO_PRIME_ID', 'ITEM_PRIME_ID', 'MATERIAL_TYPE', 'SHIP_POINT','RECEIVING_ONLY_PO', 'SCHEDULE_SOP_10_Diff', 'SCHEDULE_RAS_10_Diff', 'SCHEDULE_SCP_10_Diff', 'MILESTONE_10_meet']
@@ -505,8 +531,10 @@ The best tuned hyperparameters are: {'max_depth': 20, 'max_features': 7, 'min_sa
 The Cross Validated Accuracy for the best Random Forest Model is: 0.9775658182879946
 
 
-Figure 16: Confusion Matrix
+
 ![figure14](https://user-images.githubusercontent.com/61207345/101673194-dca58200-3a24-11eb-9443-19305a803e0e.png)
+Figure 16: Confusion Matrix
+
 
 
 Mean Cross-Validated Accuracy: 0.9801449720686802
@@ -543,8 +571,9 @@ In Scenario 3, we supposed that we do not have any information on meeting the mi
 Radom Forest --- Selecting Features
 
 
-Figure 17: Feature Selection
 ![figure15](https://user-images.githubusercontent.com/61207345/101673279-f6df6000-3a24-11eb-90d6-a064dae0f828.png)
+Figure 17: Feature Selection
+
 
 selected_features = ['REV', 'SUPPLIER_LOCATION', 'LINE_NUMBER', 'DESTINATION', 'PO_PRIME_ID', 'ITEM_PRIME_ID', 
                      'MATERIAL_TYPE', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 'QTY_ORDERED', 'MILESTONE_10_meet']
@@ -558,8 +587,9 @@ The Cross Validated Accuracy for the best Random Forest Model is: 0.864249093075
 
 
 
-Figure 18: Confusion Matrix
 ![figure16](https://user-images.githubusercontent.com/61207345/101673442-2bebb280-3a25-11eb-9c45-e7ab403a9971.png)
+Figure 18: Confusion Matrix
+
 
 
 Mean Cross-Validated Accuracy: 0.8662704997996059
@@ -585,9 +615,10 @@ Also, other numbers including Recall, F1 Score are also is less than  scenario 1
 ## Sensitivity analysis on the effects of training % vs. testing % on the Random Forest Model
 
 
+![figure17](https://user-images.githubusercontent.com/61207345/101673739-8e44b300-3a25-11eb-8863-36e7566d3249.png)
 Figure 19: Sensitivity Analysis
 
-![figure17](https://user-images.githubusercontent.com/61207345/101673739-8e44b300-3a25-11eb-8863-36e7566d3249.png)
+
 
 When Cross-valid and Testing data size increase, thier accuracies decrease
 When Training data size increases, its accuracy also increase. 
