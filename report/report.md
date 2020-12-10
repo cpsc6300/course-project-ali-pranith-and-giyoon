@@ -130,6 +130,9 @@ The number of zero of "Milestone_10_Meet" is much more than of 1, which means th
 
 
 
+
+
+
 Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10
 
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
@@ -204,7 +207,9 @@ Table 2: Classification Report
 
 
 Precision: THe ratio of correctly predicted positive observations to the total predicted positive observations.
-Recall: THe ratio of correctly predicted positive observations to the all observations in actual class - yes
+
+Recall: THe ratio of correctly predicted positive observations to the all observations in actual class - yes.
+
 F1 Score: The weighted average of Precision and Recall. F1-score takes both false positives and false negatives into account
 
 High precision relates to the low false positive rate. We have got 0.82 precision (for 1) which is pretty good.
