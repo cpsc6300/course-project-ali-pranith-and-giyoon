@@ -177,6 +177,13 @@ Testing Accuracy: 0.9169589534553039
 
 
 
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.96  |0.92  |0.94  |7423  |
+| 1  | 0.82  |0.92  |0.87  |3126  |
+
+
 
 
 
@@ -207,7 +214,11 @@ Testing Accuracy: 0.9879609441653238
 
 
 
-
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.99  |0.99  |0.99  |7423  |
+| 1  | 0.98  |0.98  |0.98  |3126  |
 
 
 
@@ -238,6 +249,13 @@ selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_
 As seen in the above plot, Milestone_9_Diff has the most important feature 
 
 
+
+
+![figure7](https://user-images.githubusercontent.com/61207345/101671952-37d67500-3a23-11eb-833a-1df006266c8d.png)
+
+
+
+
 Mean Cross-Validated Accuracy: 0.9889121228458648
 
 Training Accuracy: 0.9944941893694037
@@ -245,8 +263,12 @@ Training Accuracy: 0.9944941893694037
 Testing Accuracy: 0.9900937285681628
 
 
-![figure7](https://user-images.githubusercontent.com/61207345/101671952-37d67500-3a23-11eb-833a-1df006266c8d.png)
 
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.99  |0.99  |0.99  |9565  |
+| 1  | 0.98  |0.98  |0.98  |3558  |
 
 
 
@@ -270,8 +292,14 @@ Training Accuracy: 0.9939226519337017
 
 Testing Accuracy: 0.9887982930732302
 
- 
- 
+
+
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.99  |0.99  |0.99  |9565  |
+| 1  | 0.98  |0.98  |0.98  |3558  |
+
  
  
  
@@ -295,6 +323,11 @@ Training Accuracy: 0.9232044198895027
 
 Testing Accuracy: 0.9225786786557951
 
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.99  |0.99  |0.99  |9565  |
+| 1  | 0.98  |0.98  |0.98  |3558  |
 
 
 
@@ -321,6 +354,13 @@ Testing Accuracy: 0.9809494780156977
 
 
 
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.99  |0.99  |0.99  |9565  |
+| 1  | 0.97  |0.96  |0.96  |3558  |
+
+
 
 
 
@@ -342,6 +382,15 @@ Testing Accuracy: 0.9075668673321649
 
 
 
+Classification Report: 
+|   | Precision |Recall |F1-Score |Support |
+| ------------- | ------------- |------------- |------------- |------------- |
+|0  | 0.95  |0.92  |0.94  |9565  |
+| 1  | 0.81  |0.87  |0.84  |3558  |
+
+
+
+
 
 
 #### Comparions of Models
@@ -349,8 +398,18 @@ Testing Accuracy: 0.9075668673321649
 
 ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
 
+Classification Report: 
+| Method  | Training Accuracy |Testing Accuracy |Mean Cross Validation Accuracy |
+| ------------- | ------------- |------------- |------------- |
+| Random Forest | 0.9945  |0.9901  |0.9889 |
+| Decision Tree  | 0.9939  |0.9888  |0.9874  |
+| SVM | 0.9232  |0.9226  |0.9217 |
+| KNN  | 0.9965  |0.9809  |0.9788  |
+| Logitstic Regression  | 0.9084  |0.9076  |0.9082 |
+
 
 From the comparisions models, we found that Random Forest has the highest accuracy (over 98%) and Logistic Rgression has the lowest accuracy (under92%). 
+
 Thus, in scenario 1, it is recommened to use Random Forest model. 
 
 
@@ -448,12 +507,6 @@ The maximum training is 0.9061696658097687 obtained from the test sample size = 
 
 The maximum testing accuracy is 0.8653887342043264 obtained from the test sample size = 0.2
 
-
-## Prediction of meeting Milestone 10 for 10 random samples
-
-
-
-<img width="925" alt="Screen Shot 2020-12-09 at 1 57 17 PM" src="https://user-images.githubusercontent.com/61207345/101674452-85081600-3a26-11eb-9abc-b7439626a40a.png">
 
 
 
