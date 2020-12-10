@@ -263,12 +263,16 @@ The Cross Validated Accuracy for the best Model is: 0.9874261764145551
 ![figure8](https://user-images.githubusercontent.com/61207345/101672144-7d933d80-3a23-11eb-9532-1e26c7e79a1c.png)
 
  
+ 
 Mean Cross-Validated Accuracy: 0.9873880230048796
 
 Training Accuracy: 0.9939226519337017
 
 Testing Accuracy: 0.9887982930732302
 
+ 
+ 
+ 
  
  
  
@@ -284,11 +288,13 @@ The Cross Validated Accuracy for the best Model is:
 ![figure9](https://user-images.githubusercontent.com/61207345/101672312-baf7cb00-3a23-11eb-8b7b-bf0e543430f7.png)
 
 
+
 Mean Cross-Validated Accuracy: 0.9217184836932603
 
 Training Accuracy: 0.9232044198895027
 
 Testing Accuracy: 0.9225786786557951
+
 
 
 
@@ -315,6 +321,9 @@ Testing Accuracy: 0.9809494780156977
 
 
 
+
+
+
 #### Model 3-5 Logitstic Regression
 
 The best tuned hyperparameters are: {'C': 10, 'penalty': 'l1'}
@@ -332,6 +341,9 @@ Testing Accuracy: 0.9075668673321649
 
 
 
+
+
+
 #### Comparions of Models
 
 
@@ -340,6 +352,8 @@ Testing Accuracy: 0.9075668673321649
 
 From the comparisions models, we found that Random Forest has the highest accuracy (over 98%) and Logistic Rgression has the lowest accuracy (under92%). 
 Thus, in scenario 1, it is recommened to use Random Forest model. 
+
+
 
 
 
@@ -366,6 +380,7 @@ The Cross Validated Accuracy for the best Random Forest Model is: 0.977565818287
 
 ![figure14](https://user-images.githubusercontent.com/61207345/101673194-dca58200-3a24-11eb-9443-19305a803e0e.png)
 
+
 Mean Cross-Validated Accuracy: 0.9801449720686802
 
 Training Accuracy: 0.9953120184274985
@@ -378,9 +393,13 @@ Testing Accuracy: 0.979885803270179
 
 
 
+
+
 ## Sceario 3: What if we don't have any time-dependent data?
 
 In Scenario 3, we supposed that we do not have any information on meeting the milestones 1 through 9 as well as on other time-dependent features such as Line_SOP_date, Line_RAS_date, and SCP date. In other words, in this scenario, we supposed that there is no given date in the dataset. Therefore, we only used the time-independent features such as supplier location, line number, and shipment point to predict meeting Milestone 10. We want to know how much time-independent features are able to predict whether the Milestone 10 will be met or not. Again, we only developed a Random Forest model.
+
+
 
 
 Radom Forest --- Selecting Features
@@ -399,6 +418,7 @@ The Cross Validated Accuracy for the best Random Forest Model is: 0.864249093075
 
 
 
+
 ![figure16](https://user-images.githubusercontent.com/61207345/101673442-2bebb280-3a25-11eb-9c45-e7ab403a9971.png)
 
 
@@ -407,6 +427,8 @@ Mean Cross-Validated Accuracy: 0.8662704997996059
 Training Accuracy: 0.8895492818226844
 
 Testing Accuracy: 0.8652281002355965
+
+
 
 
 
