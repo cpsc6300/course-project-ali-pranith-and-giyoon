@@ -123,9 +123,8 @@ Milestone 10 is the target feature that we want to predict using other features.
 
 
 <p align="center">
-![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
-</p>  
-
+  ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
+</p>
 **Figure 1: Milestone 10 Distribution**
 
 
@@ -139,7 +138,7 @@ The number of zero of "Milestone_10_Meet" is much more than of 1, which means th
 
 
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
-Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10
+**Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10**
 
 
 
