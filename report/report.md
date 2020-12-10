@@ -185,6 +185,7 @@ Next important feature is NIN_NUMBER, which is the line number in the supply cha
 
 
 
+
 Figure4: Confusion Matrix
 ![figure2](https://user-images.githubusercontent.com/61207345/101670361-0eb4e500-3a21-11eb-929a-dade35cfce64.png)
 
@@ -196,6 +197,7 @@ Training Accuracy: 0.9195601166070201
 Testing Accuracy: 0.9169589534553039
 
 From figure 2, overall accuracy is under 92 % and I cannot say that the accuray is very high 
+
 
 
 
@@ -459,7 +461,9 @@ Thus, logitstic model shows poor performance and it is not recommened to use log
 
 
 Figure 14: Comparisions of Models
+
 ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
+
 
 
 Table 8: Comparisions of Models 
