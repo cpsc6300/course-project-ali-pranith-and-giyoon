@@ -120,7 +120,7 @@ We also created some additional features for the differences between the schedul
 
 ### 4.4. Data Visualization
 
-Milestone 10 is the target feature that we want to predict using other features.
+We used various data visualizations to understand better the dataset (please see the supporting materials-notebook file for more visualizations). For instance, Figure 1 shows the distribution of meeting milestone 10, which is the target feature in this project. As illustrated in this Figure, about 70,000 shipments have not met their scheduled date of milestone 10 and had some delay. Figure 2 shows the number of delay days for meeting milestone 10. As seen in this Figure, a large percentage of shipments have delays of more than 100 days, indicating that the firm could not schedule milestone 10 correctly. 
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
@@ -131,7 +131,6 @@ Milestone 10 is the target feature that we want to predict using other features.
 
 
 
-The number of zero of "Milestone_10_Meet" is much more than of 1, which means that the number of days that  Milestone 10 didn't meet schedule on time is more than on-time schedule.
 
 
 
@@ -143,8 +142,6 @@ The number of zero of "Milestone_10_Meet" is much more than of 1, which means th
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>**
 
 
-
-Because we already see in figure 1, figure2 also shows that Milestone_10 delayed a lot and its delay is mainly distributed from 0 to 1000 delay days.
 
 
 
