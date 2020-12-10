@@ -109,7 +109,9 @@ Number of Null Values in MILESTONE_1_ACTUALIZED after cleaning up: 0
 
 ### Create new feature
 
-We created a binary feature for each milestone showing whether the milestone has been met or not. For example, "MILESTONE_1_meet" is 1 if it has been met (i.e., the "MILESTONE_1_ACTUALIZED" date is before than the "MILESTONE_1_SCHEDULE" date) and it is 0 if it has not been met. Also, we created a numerical feature for each milestone showing the number of days between the scheduled and actualized dates of meeting the milestone. For example, "MILESTONE_1_Diff" shows the difference (in days) between the "MILESTONE_1_ACTUALIZED" and "MILESTONE_1_SCHEDULED".The negative values of "MILESTONE_x_Diff" shows the number of days that the "Milestone x" has been met earlier and the positive values shows the number of delay days. Note that Milestone_10_meet is our target feature that we want to predict it using other milestones and other features in the dataset. We also created some additional features for the differences between the scheduled milestone 10 and the scheduled date of other milestones under the assumption that if we have more time between the scheduled dates of other milestones and milestone 10, the probability of meeting milestone 10 might be increased. Finally, we created some features showing the number of days between the scheduled milestone 10 and other important dates (i.e. LINE_SOP_DATE, LINE_RAS_DATE, and SCP_DATE) under the assumption that these might be informative for the prediction of meeting milestone 10.
+We created a binary feature for each milestone showing whether the milestone has been met or not. For example, "MILESTONE_1_meet" is 1 if it has been met (i.e., the "MILESTONE_1_ACTUALIZED" date is before than the "MILESTONE_1_SCHEDULE" date) and it is 0 if it has not been met. Also, we created a numerical feature for each milestone showing the number of days between the scheduled and actualized dates of meeting the milestone. For example, "MILESTONE_1_Diff" shows the difference (in days) between the "MILESTONE_1_ACTUALIZED" and "MILESTONE_1_SCHEDULED".The negative values of "MILESTONE_x_Diff" shows the number of days that the "Milestone x" has been met earlier and the positive values shows the number of delay days. Note that Milestone_10_meet is our target feature that we want to predict it using other milestones and other features in the dataset. 
+
+We also created some additional features for the differences between the scheduled milestone 10 and the scheduled date of other milestones under the assumption that if we have more time between the scheduled dates of other milestones and milestone 10, the probability of meeting milestone 10 might be increased. Finally, we created some features showing the number of days between the scheduled milestone 10 and other important dates (i.e. LINE_SOP_DATE, LINE_RAS_DATE, and SCP_DATE) under the assumption that these might be informative for the prediction of meeting milestone 10.
 
 
 
@@ -124,6 +126,7 @@ Figure 1: Milestone 10 Distribution
 
 ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
 
+The number of zero of "Milestone_10_Meet" is much more than of 1, which means that the number of days that  Milestone 10 didn't meet schedule on time is more than on-time schedule.
 
 
 
@@ -132,7 +135,7 @@ Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
 
 
-
+Because we already see in figure 1, figure2 also shows that Milestone_10 delayed a lot and its delay is mainly distributed from 0 to 1000 delay days.
 
 
 
@@ -175,6 +178,8 @@ From Random Forest, we selected features
 selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 'MILESTONE_2_meet', 'MILESTONE_3_meet', 'MILESTONE_4_meet', 'MILESTONE_6_meet', 'MILESTONE_8_meet','MILESTONE_9_meet', 'MILESTONE_10_meet']
 
 As seen in the above plot, Milestone_9_meet has the most important feature 
+Next important feature is NIN_NUMBER, which is the line number in the supply chain network 
+
 
 
 Figure4: Confusion Matrix
@@ -187,6 +192,8 @@ Training Accuracy: 0.9195601166070201
 
 Testing Accuracy: 0.9169589534553039
 
+From figure 2, overall accuracy is under 92 % and I cannot say that the accuray is very high 
+
 
 
 Table 2: Classification Report 
@@ -196,6 +203,12 @@ Table 2: Classification Report
 | 1  | 0.82  |0.92  |0.87  |3126  |
 
 
+Precision: THe ratio of correctly predicted positive observations to the total predicted positive observations.
+Recall: THe ratio of correctly predicted positive observations to the all observations in actual class - yes
+F1 Score: The weighted average of Precision and Recall. F1-score takes both false positives and false negatives into account
+
+High precision relates to the low false positive rate. We have got 0.82 precision (for 1) which is pretty good.
+Also, other numbers including Recall, F1 Score are also pretty good
 
 
 
@@ -217,6 +230,7 @@ selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_
 As seen in the above plot, Milestone_9_Diff has the most important feature 
 
 
+
 Figure6: Confusion Matrix
 ![figure4](https://user-images.githubusercontent.com/61207345/101671417-7881be80-3a22-11eb-9c93-37dda274cc1d.png)
 
@@ -227,6 +241,7 @@ Training Accuracy: 0.9942881520631385
 
 Testing Accuracy: 0.9879609441653238
 
+When using the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9 (instead of using the binary features for meeting the milestones 1 through 9 in model 1), we found that all accuracy increased to 98%.
 
 
 Table 3: Classification Report 
@@ -234,6 +249,10 @@ Table 3: Classification Report
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |7423  |
 | 1  | 0.98  |0.98  |0.98  |3126  |
+
+
+High precision relates to the low false positive rate. We have got 0.98 precision (for 1) which is much higher than model 1 case.
+Also, other numbers including Recall, F1 Score are also much more higher than model 1.
 
 
 
@@ -290,6 +309,9 @@ Table 4: Classification Report
 | 1  | 0.98  |0.98  |0.98  |3558  |
 
 
+High precision relates to the low false positive rate. We have got 0.98 precision and 0.99 (for 1 and 0) which is much higher than model 1 case.
+
+Also, other numbers including Recall, F1 Score are also much more higher than model 1 and similar with model 2
 
 
 
@@ -320,6 +342,10 @@ Table 5: Classification Report
 | 1  | 0.98  |0.98  |0.98  |3558  |
 
  
+High precision relates to the low false positive rate. We have got 0.98 precision and 0.99 (for 1 and 0) which is much higher than model 1 case and similar with model 2
+
+Also, other numbers including Recall, F1 Score are also much more higher than model 1 and similar with model 2
+
  
  
  
@@ -348,6 +374,10 @@ Table 6: Classification Report
 |0  | 0.99  |0.99  |0.99  |9565  |
 | 1  | 0.98  |0.98  |0.98  |3558  |
 
+
+High precision relates to the low false positive rate. We have got 0.98 precision and 0.99 (for 1 and 0) which is much higher than model 1 case and similar with model 2
+
+Also, other numbers including Recall, F1 Score are also much more higher than model 1 and similar with model 2
 
 
 
@@ -380,6 +410,9 @@ Table 6: Classification Report
 | 1  | 0.97  |0.96  |0.96  |3558  |
 
 
+High precision relates to the low false positive rate. We have got 0.90 precision and 0.96 (for 1 and 0) which is much higher than model 1 case. When comparing above models, KNN's precision, recall, and f1-score for 1 is slightly less.
+
+
 
 
 
@@ -408,6 +441,11 @@ Table 7: Classification Report
 | 1  | 0.81  |0.87  |0.84  |3558  |
 
 
+High precision relates to the low false positive rate. We have got 0.95 precision and 0.81 (for 1 and 0) which is the least number when comparing above models. 
+
+Also, other numbers including Recall, F1 Score are also much less than above models.
+
+Thus, logitstic model shows poor performance and it is not recommened to use logitstic model in scenario 1
 
 
 
@@ -479,6 +517,9 @@ Table 9: Classification Report:
 
 
 
+High precision relates to the low false positive rate. We have got 0.99 precision and 0.96 (for 1 and 0) which is similar with scenario 1 models except for logitstic regression
+
+Also, other numbers including Recall, F1 Score are also similar with scenario 1 models except for logitstic regression
 
 
 
@@ -527,6 +568,9 @@ Table 10: Classification Report:
 |0  | 0.90  |0.92  |0.91  |13957  |
 | 1  | 0.75  |0.71  |0.73  |4719  |
 
+High precision relates to the low false positive rate. We have got 0.90 precision and 0.75 (for 1 and 0) which is less than  scenario 1 & 2 models 
+
+Also, other numbers including Recall, F1 Score are also is less than  scenario 1 & 2 models 
 
 
 
