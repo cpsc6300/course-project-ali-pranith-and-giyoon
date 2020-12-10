@@ -5,7 +5,7 @@
 ### Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
 ### Date: December 10th, 2020
 
-# Probelm Statement and Motivation
+# Problem Statement and Motivation
 
 One of the most challenging problems in a supply chain network is meeting the scheduled shipment delivery. A firm has a limited time and budget and needs to receive its shipment on time. For example, the common issues that affect the timeliness of deliveries include poor shipment delivery planning, lading errors, and attaching incorrect documentation(Lingaro Group,2020).
 
