@@ -154,7 +154,7 @@ Because we already see in figure 1, figure2 also shows that Milestone_10 delayed
 
 ### 4.5. Encoding Categorical Features & Scaling Numerical Features
 
-It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works.
+It should be noted that according to the performance metrics that we will explain in Section 5, in this project, Random Forest produces more accurate and reliable results compared to other machine learning techniques. Random Forest requires neither categorical encoding nor scaling numerical features. However, we still do encoding and scaling processes because we want to test other supervised classification methods such as SVM, KNN, and Logistic Regression, and these methods require encoded categorical data and scaling numerical data to produce better results. Also, to encode categorical data, we used the label encoder method, a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works.
 
 
 
