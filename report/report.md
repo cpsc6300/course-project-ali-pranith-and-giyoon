@@ -1,9 +1,9 @@
 
 
-# TITLE: A shipment delivery prediction in a large supply chain network using machine learning
+# TITLE: Shipment Delivery Prediction in Logistics Using Machine Learning
 
-## Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
-## Date: December 5th, 2020
+### Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
+### Date: December 10th, 2020
 
 # Probelm Statement and Motivation
 This should be a brief and self-contained decription of the problem that your project aims to solve and what motivated you to solve this problem.
