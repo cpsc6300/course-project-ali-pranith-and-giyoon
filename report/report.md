@@ -83,7 +83,7 @@ The first concerns the measurement object, which may be the number of orders, in
 
 # 4. Data Preparation
 
-### 4.1. Drop either the unncessary columns or the columns with too many Null values 
+### 4.1. Drop unnecessary columns and columns with too many Null values 
 
 To clean up the dataset, we first dropped unnecessary columns (features) including noninformative features (e.g., the description columns), the columns containing the same value for all the records (e.g., SHIP_GROUP_TYPE which has the same value for all the records), and duplicated features (e.g., the columns containing the same value for every record such as the columns of REV and IN_DOC_REV_PK). Also, we dropped the columns with too many null values.
 
