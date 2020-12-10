@@ -25,7 +25,7 @@ In this project, we want to utilize supervised machine learning techniques to pr
 
 
 
-<h1 align="center"> **Table 1: Description of Features**</h1>
+<h1 align="center">Table 1: Description of Features</h1>
 
 | Feature  | Description |
 | ------------- | ------------- |
@@ -123,8 +123,10 @@ Milestone 10 is the target feature that we want to predict using other features.
 
 
 ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
+ 
+ -><Figure 1: Milestone 10 Distribution><-
 
-<h1 align="center"> **<Figure 1: Milestone 10 Distribution>**</h1>
+
 
 
 The number of zero of "Milestone_10_Meet" is much more than of 1, which means that the number of days that  Milestone 10 didn't meet schedule on time is more than on-time schedule.
@@ -137,7 +139,7 @@ The number of zero of "Milestone_10_Meet" is much more than of 1, which means th
 
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
 
-**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>** 
+<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>
 
 
 
