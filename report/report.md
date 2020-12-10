@@ -88,7 +88,7 @@ The first concerns the measurement object, which may be the number of orders, in
 
 # Data Preparation
 
-1. Drop either the unncessary columns or the columns with too many Null values 
+### Drop either the unncessary columns or the columns with too many Null values 
 
 To clean up the dataset, we first dropped unnecessary columns (features) including noninformative features (e.g., the description columns), the columns containing the same value for all the records (e.g., SHIP_GROUP_TYPE which has the same value for all the records), and duplicated features (e.g., the columns containing the same value for every record such as the columns of REV and IN_DOC_REV_PK). Also, we dropped the columns with too many null values.
 
@@ -97,7 +97,7 @@ To clean up the dataset, we first dropped unnecessary columns (features) includi
 
 
 
-2. Fill null values
+### Fill null values
 
 Some important features, specifically the Milestone columns, have some Null values that can be effectively filled out using the values of other features. Since the Milestone features are the important features in this study, we don't want to easily drop all the records with missing values beacaue we will miss a lot of records. Therefore, after the consultation with the data analyst at the Firm, we found out the features containing the same value for the Milestones and use these duplicated features to fill out the Null values of the Milestone features. However, beacuse the Milestones 5 and 7 include too many Null values, we dropped those from the dataset.
 
@@ -110,7 +110,7 @@ Number of Null Values in MILESTONE_1_ACTUALIZED after cleaning up: 0
 
 
 
-3. Create new feature
+### Create new feature
 
 We created a binary feature for each milestone showing whether the milestone has been met or not. For example, "MILESTONE_1_meet" is 1 if it has been met (i.e., the "MILESTONE_1_ACTUALIZED" date is before than the "MILESTONE_1_SCHEDULE" date) and it is 0 if it has not been met. Also, we created a numerical feature for each milestone showing the number of days between the scheduled and actualized dates of meeting the milestone. For example, "MILESTONE_1_Diff" shows the difference (in days) between the "MILESTONE_1_ACTUALIZED" and "MILESTONE_1_SCHEDULED".The negative values of "MILESTONE_x_Diff" shows the number of days that the "Milestone x" has been met earlier and the positive values shows the number of delay days. Note that Milestone_10_meet is our target feature that we want to predict it using other milestones and other features in the dataset. We also created some additional features for the differences between the scheduled milestone 10 and the scheduled date of other milestones under the assumption that if we have more time between the scheduled dates of other milestones and milestone 10, the probability of meeting milestone 10 might be increased. Finally, we created some features showing the number of days between the scheduled milestone 10 and other important dates (i.e. LINE_SOP_DATE, LINE_RAS_DATE, and SCP_DATE) under the assumption that these might be informative for the prediction of meeting milestone 10.
 
@@ -119,7 +119,7 @@ We created a binary feature for each milestone showing whether the milestone has
 
 
 
-4. Visualization of data
+### Data Visualization
 
 Milestone 10 is the target feature that we want to predict using other features.
 
@@ -139,7 +139,7 @@ Plot the Difference between Scheduled and Actualized Dates of Milestone 10
 
 
 
-5.Encoding Categorical Features & Scaling Numerical Features
+### Encoding Categorical Features & Scaling Numerical Features
 
 It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works.
 
@@ -553,7 +553,12 @@ In the last scenario, we supposed that the firm does not track a shipment at all
 
 
 # Conclusions and Future Work
-Summarize your results, the strengths and short-comings of your results, and speculate on how you might address these short-comings if given more time.
+This project developed supervised machine learning models to predict if a shipment delivery will be on time in logistics. On-time delivery is one of the most challenging logistics problems. All the suppliers and third-party logistics companies try to predict delivery time accurately and schedule their shipment delivery accordingly. We followed several modeling scenarios depending on if the firms track a shipment at different delivery stages and how much information it has on shipment delivery. In the first scenario, we showed that if the firm tracks its shipments at different stages (milestones), it will predict if the delivery to the end-user will be on time or not with high accuracy. This model requires a firm to have a tracking system to collect data from a shipment at different stages and has a rich shipment database and information technology infrastructures. However, many logistics firms might not have access to this information; therefore, in the second scenario, we developed a supervised machine learning model to predict if a shipment will be delivered on time without tracking shipment information at different stages. In this model, we only used the firm's scheduled dates for shipment delivery and other features such as destination, origin, shipment type, material type, the quantity of the shipment, etc., to predict if the delivery will be on time. The results showed that the model is still able to predict meeting on-time delivery with high accuracies. Finally, in the last modeling scenario, we assumed that the firm does not have any schedule for the shipment delivery at different stages and only knows if the shipment will arrive on time to the final destination. For this purpose, we developed a machine learning model based on time-independent features. The results showed that we could predict if a shipment delivery will be on time with about 89% accuracy, which is reasonable accuracy in this case.
+
+The results show that the use of supervised machine learning models can significantly help a logistics firm to predict if the delivery will be met its scheduled date or not. As a result, the firm can predict the shipment that is more likely to have a delivery delay and adjust its schedule. Also, for future shipments, the firm can set the scheduled dates of similar shipments more accurately. This significantly reduces the negative consequences of delayed delivery and increases customer satisfaction as on-time delivery is one of the most important criteria influencing user satisfaction in logistics and supply chain networks.
+
+For future work, several modeling and technical approaches can be considered. First, in this project, we only predict if a shipment will meet its scheduled delivery time or not. In other words, the target feature was binary in this study; however, in the future, we can consider a numerical target feature showing the amount of delay in days. In other words, instead of using a binary feature, we might use a numerical feature measuring the difference between the scheduled and actualized delivery dates in days. Second, in this study, we applied simple methods such as calculating the correlation between the target feature and predictors and the importance of features obtained from the random forest to select the most significant features. We can use more reliable feature selection methods such as forward feature selection, backward feature selection, or information gain to select the features in future work. Finally, we applied a simple encoder for encoding the categorical features that might affect the performance of some machine learning techniques such as SVM and logistics regression. Therefore, in future work, we can use more reliable encoding techniques such as one-hot encoding.  
+
 
 # References:
 This could include the revised key papers, texts, or websites that you may use to develop your project.
