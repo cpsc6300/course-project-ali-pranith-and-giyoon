@@ -2,7 +2,7 @@
 
 # Shipment Delivery Prediction in Logistics Using Machine Learning
 
-### Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
+### Team Members: Ali Shirzadibabakan, Pranith Abbaraju, Giyoon Kwag
 ### Date: December 10th, 2020
 
 # 1. Problem Statement and Motivation
