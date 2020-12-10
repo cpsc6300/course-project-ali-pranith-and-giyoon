@@ -25,7 +25,7 @@ In this project, we want to utilize supervised machine learning techniques to pr
 
 
 
-<h1 align="center">Table 1: Description of Features</h1>
+<h1 align="center"> **Table 1: Description of Features**</h1>
 
 | Feature  | Description |
 | ------------- | ------------- |
@@ -83,9 +83,16 @@ The first concerns the measurement object, which may be the number of orders, in
 
 # 4. Data Preparation
 
+The dataset used in this project is a real-world dataset having several issues and needs to be corrected before feeding into the machine learning model. In the following, we briefly explain some data cleaning up processes that we conducted on the dataset.
+
+
+
+
+
+
 ### 4.1. Drop unnecessary columns and columns with too many Null values 
 
-To clean up the dataset, we first dropped unnecessary columns (features) including noninformative features (e.g., the description columns), the columns containing the same value for all the records (e.g., SHIP_GROUP_TYPE which has the same value for all the records), and duplicated features (e.g., the columns containing the same value for every record such as the columns of REV and IN_DOC_REV_PK). Also, we dropped the columns with too many null values.
+We first dropped unnecessary columns (features) including noninformative features (e.g., the description columns), the columns containing the same value for all the records (e.g., SHIP_GROUP_TYPE, which has the same value for all the records), and duplicated features (e.g., the columns containing the same value for every record such as the columns of REV and IN_DOC_REV_PK). Also, we dropped the columns with too many null values.
 
 
 
@@ -94,11 +101,7 @@ To clean up the dataset, we first dropped unnecessary columns (features) includi
 
 ### 4.2. Fill null values
 
-Some important features, specifically the Milestone columns, have some Null values that can be effectively filled out using the values of other features. Since the Milestone features are the important features in this study, we don't want to easily drop all the records with missing values beacaue we will miss a lot of records. Therefore, after the consultation with the data analyst at the Firm, we found out the features containing the same value for the Milestones and use these duplicated features to fill out the Null values of the Milestone features. However, beacuse the Milestones 5 and 7 include too many Null values, we dropped those from the dataset.
-
-For example, we filled null values in MILESTONE_1_ACTUALIZED with the possible values from other columns.
-Number of Null Values in MILESTONE_1_ACTUALIZED before cleaning up: 11
-Number of Null Values in MILESTONE_1_ACTUALIZED after cleaning up: 0
+Some essential features, mainly the scheduled and actualized dates of the milestones, have some null values that can be effectively filled out using other features' values. Since the scheduled and actualized dates of the milestones are important in this study, we do not want to drop all the records with missing values easily. Therefore, after the consultation with the firm's data analyst, we found out the features containing the same value for the scheduled and actualized dates of the milestones and use those duplicated features to fill out some null values of scheduled and actualized dates of the milestone. However, because milestones 5 and 7 still include too many null values, even after filling some null values using other duplicated features, we decided to drop those from the dataset.
 
 
 
@@ -107,9 +110,10 @@ Number of Null Values in MILESTONE_1_ACTUALIZED after cleaning up: 0
 
 ### 4.3. Create new features
 
-We created a binary feature for each milestone showing whether the milestone has been met or not. For example, "MILESTONE_1_meet" is 1 if it has been met (i.e., the "MILESTONE_1_ACTUALIZED" date is before than the "MILESTONE_1_SCHEDULE" date) and it is 0 if it has not been met. Also, we created a numerical feature for each milestone showing the number of days between the scheduled and actualized dates of meeting the milestone. For example, "MILESTONE_1_Diff" shows the difference (in days) between the "MILESTONE_1_ACTUALIZED" and "MILESTONE_1_SCHEDULED".The negative values of "MILESTONE_x_Diff" shows the number of days that the "Milestone x" has been met earlier and the positive values shows the number of delay days. Note that Milestone_10_meet is our target feature that we want to predict it using other milestones and other features in the dataset. 
+We created a binary feature for each milestone showing whether the milestone has been met or not. For example, "MILESTONE_1_meet" is 1 if it has been met (i.e., the "MILESTONE_1_ACTUALIZED" date is earlier than the "MILESTONE_1_SCHEDULE" date), and it is 0 if it has not been met. Also, we created a numerical feature for each milestone showing the number of days between the scheduled and actualized dates of the milestone. For example, "MILESTONE_1_Diff" shows the difference (in days) between the "MILESTONE_1_ACTUALIZED" and "MILESTONE_1_SCHEDULED". The negative values of "MILESTONE_x_Diff" indicate the number of days that the "Milestone x" has been met earlier, and the positive values show the number of delay days. Note that Milestone_10_meet is the target feature that we want to predict using other milestones and other dataset features.
 
-We also created some additional features for the differences between the scheduled milestone 10 and the scheduled date of other milestones under the assumption that if we have more time between the scheduled dates of other milestones and milestone 10, the probability of meeting milestone 10 might be increased. Finally, we created some features showing the number of days between the scheduled milestone 10 and other important dates (i.e. LINE_SOP_DATE, LINE_RAS_DATE, and SCP_DATE) under the assumption that these might be informative for the prediction of meeting milestone 10.
+We also created some additional features for the differences between the scheduled milestone 10 and the scheduled date of other milestones under the assumption that if we have more time between the scheduled dates of other milestones and milestone 10, the probability of meeting milestone 10 might be increased. Finally, we created some features showing the number of days between the scheduled milestone 10 and other important dates (i.e., LINE_SOP_DATE, LINE_RAS_DATE, and SCP_DATE) under the assumption that these might be informative for the prediction of meeting milestone 10.
+
 
 
 
@@ -123,10 +127,8 @@ Milestone 10 is the target feature that we want to predict using other features.
 
 
 ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
- 
- -><Figure 1: Milestone 10 Distribution><-
 
-
+<h1 align="center"> **<Figure 1: Milestone 10 Distribution>**</h1>
 
 
 The number of zero of "Milestone_10_Meet" is much more than of 1, which means that the number of days that  Milestone 10 didn't meet schedule on time is more than on-time schedule.
@@ -139,7 +141,7 @@ The number of zero of "Milestone_10_Meet" is much more than of 1, which means th
 
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
 
-<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>
+**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>** 
 
 
 
