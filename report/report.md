@@ -1,6 +1,6 @@
 
 
-# TITLE: Shipment Delivery Prediction in Logistics Using Machine Learning
+# Shipment Delivery Prediction in Logistics Using Machine Learning
 
 ### Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
 ### Date: December 10th, 2020
@@ -16,7 +16,7 @@ Machine Learning methods can considerably help with this issue as they can utili
 
 Here is our resarch question: What factors are useful/important for predicting whether a shipment is going to be on-time? 
 
-# Introduction and Description of Data
+# Introduction and Data Description
 Description of relevant knowledge. Why is this problem important? Why is it challenging? Introduce the motivations for the project question and how that question was defined through preliminary EDA.
 
 Meeting delivery requirements and customers’ expectations is very important for every business. In fact, 4 of the top 6 challenges reported by 2020 MHI Annual Industry Report are related to higher customer expectations and faster delivery. Increasing attention is given to on-time delivery of goods in the logistics and distribution industry. With uncertainties in customer demands, on-time deliveries cannot be ensured frequently (Zhang et al., 2016). On time delivery is defined as a measure of process and supply chain efficiency which measures the amount of finish goods or services delivered to customers on time and in full. It helps determine how efficiently we are meeting our customer's or agreed deadlines[3].
@@ -77,7 +77,7 @@ Table 1: Description of Features
 
 
 
-# Literature Review/Related Work 
+# Literature Review and Related Work 
 This could include noting any key papers, texts, or websites that you have used to develop your modeling approach, as well as what others have done on this problem in the past. You must properly credit sources.
 
 The concept of on-time delivery measures performance regarding perfact delivery and customer service level with delivery reliability and order completeness(Gunasekaran et al., 2004). On-time delivery, lead time length, delivery reliability, and inventory service level are examples of common delivery service performance variables in dyadic customer–supplier interfaces. Among them, on-time delivery is often considered the most important performance variable when orders are seldom changed in the supply chain(Keebler et al.1999, Stock and Lambert 2001). Most companies, regardless firm size and industry, normally have on-time as in important supply perfromnance metric. When defining on-time delivery, there are several different issues that firms need to consider(Forslund and Jonsson 2007). 
@@ -239,13 +239,11 @@ Classification Report:
 
 In Model 3, to increase the size of training and test datasets, we removed the features related to the Milestones 6 and 8 as they have much more Null values compared to other features. Because we want to run different classification methods and compare their performance metrics, we performed a correlation matrix beteen features and selected the highest correlated features with the target feature as the most important features. Then, we tuned the hyperparameters of several classification methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression. Finally, we trained the tuned models, obtained the performance metrics using test dataset, and compare the results.
 
-#### Model 3-1 Random Forest
-          
-![figure5](https://user-images.githubusercontent.com/61207345/101671525-96e7ba00-3a22-11eb-9c3a-70f713aefec8.png)
 
 
 
-Correlation Matrix
+
+#### Correlation Matrix
 
 ![figure6](https://user-images.githubusercontent.com/61207345/101671610-b54db580-3a22-11eb-9acc-112772bdcf62.png)
 
@@ -260,6 +258,9 @@ selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_
 
 As seen in the above plot, Milestone_9_Diff has the most important feature 
 
+
+
+#### Model 3-1 Random Forest
 
 
 
@@ -537,7 +538,7 @@ The maximum testing accuracy is 0.8653887342043264 obtained from the test sample
 
 
 
-# Project Trajectory, Results, and Interpretation 
+# Project Trajectory, Results and Discussion 
 
 In this project, we developed a machine learning model to predict whether a shipment delivery will be on time or not. On-time delivery is one of the biggest concerns of a supplier affecting customer satisfaction considerably. Therefore, a supplier wants to have an accurate model predicting if a shipment might be delivered with a delay. This model helps the supplier adjust its delivery schedule and logistics processes to reduce delivery delays for the shipments that are likely to delay delivery. For this purpose, we collected data from a firm’s large-scale supply chain network containing different features about the shipment. This firm sets ten milestones for tracking a shipment at different stages from the purchase order issue to delivery to the destination. For each milestone, the firm defines two dates: a scheduled date that the firm expects the shipment will meet and an actualized date that the shipment was met. The difference between the scheduled and actualized dates indicates that if the shipment has met that milestone or not. This study aims to predict if a shipment will meet the final milestone (milestone 10) or not.  To this end, we designed different scenarios and developed an appropriate machine learning model for each scenario. 
 
