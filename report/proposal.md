@@ -1,5 +1,5 @@
 # TITLE: Where is my order?: A shipment delivery prediction in a large supply chain network using machine learning
-## Team Members: Ali Shirzadibabakan, Pranith Abbarajou, Giyoon Kwag
+## Team Members: Ali Shirzadibabakan, Pranith Abbaraju, Giyoon Kwag
 ## Date: November 10, 2020
 
 # Project Description
@@ -16,11 +16,6 @@ Meeting delivery requirements and customers’ expectations is very important fo
 Weak on-time delivery performance not only negatively affects customer satisfaction, but also indicates poor production efficiency and materials handling procedures. Poor on-time delivery can cause several issues that affect other aspects of a company’s supply chain network such as production delays due to material shortages, avoidable expedited shipping costs, and customer dissatisfaction (Otto Motors, 2017). Therefore, suppliers need to accurately predict delivery time and according to this prediction, provides a precise delivery time to the customer. Also, they need to know what shipments might been delivered delayed based on the historical data. This helps them notify their customers and provide them more actual delivery times. In addition, not delivering goods on-time can affect the functioning of the entire business, including firm's financial stability (Lingaro Group,2020). In this project, we want to utilize supervised machine learning techniques to predict whether a shipment will meet its scheduled delivery time or not. 
 
 For this purpose, we collected data from a large Engineering, Procurement, and Construction (EPC) firm that has provided data for individual items being shipped through its supply chain network. The dataset contains more than 93,000 records and 137 features about the characteristics of shipments, origin, destination, and 10 milestones that the supplier has defined to track a shipment from the production to customer. These milestones show if a shipment has met different scheduled time milestones or not. In other words, there are two dates (i.e. scheduled and actual) indicating that if that milestone has met or not. The tenth milestone is the shipment delivery to the final customer that we want to predict.
-
-## Literature Review
-A review of the literature on shipment delivery time suggests that researchers have built optimization models to forecast the success and failures of on-time delivery. The growing popularity in the use and availability of Machine Learning and Deep Learning Techniques have revolutionized the supply chain industry, shifting the focus on using these techniques to predict the shipment's success of on-time delivery more accurately in less time (Waller et al., 2013). 
-
-Although using a deep learning technique might help in getting a better accuracy in our prediction, the trade off lies in the lack of interpretability of the outcome (Baryannis et al., 2019). In certain cases, it is important for a company to know which stage of the supply chain cycle has what level of impact on the overall outcome. This enables them to focus on making real-time changes to ensure product delivery is on-time. For this reason, we have chosen to use supervised machine learning techniques to predict our outcome of interest.
 
 # Plan
 1- Data cleaning up and data preparation: 2 weeks
@@ -41,11 +36,6 @@ of computing and storage requirements:
 
 As our dataset is not too big, we can do this project using a typical desktop. 
 
-## Findings
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laboru
-
-## Conclusion and Future Direction
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laboru
 
 # References:
 
