@@ -26,7 +26,7 @@ For this purpose, we collected data from a large Engineering, Procurement, and C
 
 
 
-Table 1: Description of Features
+**Table 1: Description of Features**
 
 | Feature  | Description |
 | ------------- | ------------- |
@@ -122,10 +122,11 @@ We also created some additional features for the differences between the schedul
 Milestone 10 is the target feature that we want to predict using other features.
 
 
-
+<p align="center">
 ![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
-Figure 1: Milestone 10 Distribution
+</p>  
 
+**Figure 1: Milestone 10 Distribution**
 
 
 
