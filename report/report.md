@@ -128,7 +128,6 @@ Milestone 10 is the target feature that we want to predict using other features.
 **<Figure 1: Milestone 10 Distribution>**
 
 
-
 The number of zero of "Milestone_10_Meet" is much more than of 1, which means that the number of days that  Milestone 10 didn't meet schedule on time is more than on-time schedule.
 
 
@@ -139,7 +138,7 @@ The number of zero of "Milestone_10_Meet" is much more than of 1, which means th
 
 ![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
 
-**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>**
+**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>** 
 
 
 
