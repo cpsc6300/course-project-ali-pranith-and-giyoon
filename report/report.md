@@ -566,7 +566,9 @@ This could include the revised key papers, texts, or websites that you may use t
 
 
 # Support Materials
-Provide a list of materials that support your project, for example, the notebooks and data sources.
+
+#### 1. Dataset: Supply Chain Deliveries
+#### 2. Notebook file: Code.ipynb
 
 # Declaration of academic integrity and responsibility
 
