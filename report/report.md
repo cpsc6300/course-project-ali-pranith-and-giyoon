@@ -11,9 +11,9 @@ One of the most challenging problems in logistics and supply chain network is me
 
 Machine Learning methods can considerably help suppliers with utilizing historical data on shipment delivery and predict whether a shipment with specific characteristics (origin, destination, shipment type, etc.) will deliver on time or not (Hughes et al., 2019). This prediction model substantially helps suppliers and third-party logistics companies to enhance their supply chain network and offer more reasonable delivery dates to their customers. For instance, if the prediction shows that the delivery of a specific type of shipment or delivery to a particular destination will have a delay, the provider might figure out the main issues to enhance the network in the future. They can also notice the customer that the shipment might not deliver on time.
 
-In this project, we propose several modeling scenarios based on the available data and the stage at which a firm wants to predict if a shipment will be delivered on time or not, using various supervised machine learning methods. Therefore, in this project, our target is a binary feature indicating that if a shipment meets its scheduled delivery or not. For this purpose, we utilized various time-independent predictors such as supplier location, shipment origin, shipment destination, shipment type, shipment material, the quantity of the shipment, etc. and time-dependent features such as different milestones indicating that if a shipment has met its scheduled date for that milestone or not. Logistics firms usually have a system to track their shipments from an origin to a destination. They also set several milestones and plan schedules for each milestone to track if a shipment will follow its scheduled plan (Otto, 2003). In this case study, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm with a large-scale supply chain network and gathers different time-independent and time-dependent features shipments. This firm sets ten milestones for tracking a shipment at different stages, from issuing a purchase order to delivery to the destination. For each milestone, the firm sets a scheduled date that expects the shipment to meet and collected an actualized date that the shipment met that milestone. The difference between the scheduled and actualized dates for each milestone shows that if the shipment has met that milestone or not. This study aims to predict if a shipment will meet the final milestone (milestone 10), which is delivery to the end customer.  To this end, we designed different modeling scenarios and developed appropriate machine learning models for each scenario. <br/>
-<br/>
-<br/>
+In this project, we propose several modeling scenarios based on the available data and the stage at which a firm wants to predict if a shipment will be delivered on time or not, using various supervised machine learning methods. Therefore, in this project, our target is a binary feature indicating that if a shipment meets its scheduled delivery or not. For this purpose, we utilized various time-independent predictors such as supplier location, shipment origin, shipment destination, shipment type, shipment material, the quantity of the shipment, etc. and time-dependent features such as different milestones indicating that if a shipment has met its scheduled date for that milestone or not. Logistics firms usually have a system to track their shipments from an origin to a destination. They also set several milestones and plan schedules for each milestone to track if a shipment will follow its scheduled plan (Otto, 2003). In this case study, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm with a large-scale supply chain network and gathers different time-independent and time-dependent features shipments. This firm sets ten milestones for tracking a shipment at different stages, from issuing a purchase order to delivery to the destination. For each milestone, the firm sets a scheduled date that expects the shipment to meet and collected an actualized date that the shipment met that milestone. The difference between the scheduled and actualized dates for each milestone shows that if the shipment has met that milestone or not. This study aims to predict if a shipment will meet the final milestone (milestone 10), which is delivery to the end customer.  To this end, we designed different modeling scenarios and developed appropriate machine learning models for each scenario. 
+
+
 
 # 2. Introduction and Data Description
 
@@ -21,12 +21,12 @@ The satisfaction of delivery requirements and customers’ expectations is essen
 
 Weak delivery performance negatively affects customer satisfaction (Lim et al., 2001) and indicates low production efficiency and materials handling procedures. Poor delivery can cause several issues affecting other aspects of a company’s supply chain network, such as production delays due to material shortages, avoidable expedited shipping costs, and customer dissatisfaction (Otto Motors, 2017). Therefore, suppliers need to predict delivery time accurately and, according to this prediction, offer a precise delivery time to their customers. Also, they need to know which shipments might deliver delayed based on historical data. This helps them to notice the customer and provide more actual delivery time to the customer. Furthermore, on-time delivery is not just about customer satisfaction and deadlines. Not meeting on-time delivery can affect the entire business's functioning, including its financial stability (Lingaro Group,2020). 
 
-In this project, we want to utilize supervised machine learning techniques to predict whether a shipment will meet its scheduled delivery time or not. For this purpose, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm that has provided data for individual items being shipped through its supply chain network. The dataset contains more than 93,000 records and 137 features about the characteristics of shipments, origin, destination, and 10 milestones that the supplier has defined to track a shipment from an origin to a destination. These milestones show that if a shipment has met the scheduled plan of the firm. In other words, there are two dates (i.e., scheduled and actualized dates) for each milestone, indicating that if that milestone has been met or not. The 10th milestone is the shipment delivery to the final customer that we want to predict. Table 1 describes the most important features in this dataset.<br/>
-<br/>
+In this project, we want to utilize supervised machine learning techniques to predict whether a shipment will meet its scheduled delivery time or not. For this purpose, we collected data from an extensive Engineering, Procurement, and Construction (EPC) logistics firm that has provided data for individual items being shipped through its supply chain network. The dataset contains more than 93,000 records and 137 features about the characteristics of shipments, origin, destination, and 10 milestones that the supplier has defined to track a shipment from an origin to a destination. These milestones show that if a shipment has met the scheduled plan of the firm. In other words, there are two dates (i.e., scheduled and actualized dates) for each milestone, indicating that if that milestone has been met or not. The 10th milestone is the shipment delivery to the final customer that we want to predict. Table 1 describes the most important features in this dataset.
 
 
 
-## <Table 1: Description of Features>
+
+<h1 align="center">Table 1: Description of Features</h1>
 
 | Feature  | Description |
 | ------------- | ------------- |
@@ -62,9 +62,9 @@ In this project, we want to utilize supervised machine learning techniques to pr
 | MILESTONE_9_SCHEDULE  | The scheduled date that the shipment will be at the destination’s supplier warehouse  |
 | MILESTONE_9_ACTUALIZED  | The actualized date that the shipment was at the destination’s supplier warehouse  |
 | MILESTONE_10_SCHEDULE  | The scheduled date that the shipment will be at the destination (The scheduled date of Material Received Report (MRR)) |
-| MILESTONE_10_ACTUALIZED | The actualized date that the shipment was at the destination (The actualized date of Material Received Report (MRR))  | <br/>
-<br/>
-<br/>
+| MILESTONE_10_ACTUALIZED | The actualized date that the shipment was at the destination (The actualized date of Material Received Report (MRR))  |
+
+
 
 
 
@@ -80,9 +80,8 @@ A review of the literature on shipment delivery time suggests that researchers h
 
 The first concerns the measurement object, which may be the number of orders, individual items or, order lines. The second concerns the time unit for measuring being on time. It could vary between the correct hour, day, week or within a specific time window. The third concerns the measurement point, i.e. where along the supply chain the order is considered to be delivered. The fourth concerns the comparison date for an actual delivery date in order to decide if it is on time or not. However, few studies have examined in any depth how delivery service performance should be managed, and almost none have focused on measuring on-time delivery.
 
-The growing popularity in the use and availability of Machine Learning and Deep Learning techniques have revolutionized the supply chain industry, shifting the focus on using these techniques to predict the shipment's success of on-time delivery more accurately in less time (Waller et al., 2013). Although using a deep learning technique might help in getting a better accuracy in our prediction, the tradeoff lies in the lack of interpretability of the model (Baryannis et al., 2019). In certain cases, it is important for a company to know which stage of the supply chain cycle has what level of impact on the overall outcome. This enables them to focus on making real-time changes to ensure product delivery is on-time. For this reason, we have chosen to use supervised machine learning techniques to predict our outcome of interest.<br/>
-<br/>
-<br/>
+The growing popularity in the use and availability of Machine Learning and Deep Learning techniques have revolutionized the supply chain industry, shifting the focus on using these techniques to predict the shipment's success of on-time delivery more accurately in less time (Waller et al., 2013). Although using a deep learning technique might help in getting a better accuracy in our prediction, the tradeoff lies in the lack of interpretability of the model (Baryannis et al., 2019). In certain cases, it is important for a company to know which stage of the supply chain cycle has what level of impact on the overall outcome. This enables them to focus on making real-time changes to ensure product delivery is on-time. For this reason, we have chosen to use supervised machine learning techniques to predict our outcome of interest.
+
 
 # 4. Data Preparation
 
@@ -127,27 +126,31 @@ We used various data visualizations to understand better the dataset (please see
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![figure18](https://user-images.githubusercontent.com/61207345/101703648-01175380-3a51-11eb-9f27-8d221394917e.png)
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 1: Milestone 10 Distribution>** <br/>
-<br/>
-<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 1: Milestone 10 Distribution>**
+
+
+
+
+
+
 
 
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![figure19](https://user-images.githubusercontent.com/61207345/101703828-60756380-3a51-11eb-9b7a-80267399d260.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>** <br/>
-<br/>
-<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 2: Difference between Scheduled and Actualized Dates of Milestone 10>**
+
+
 
 
 
 
 ### 4.5. Encoding Categorical Features & Scaling Numerical Features
 
-It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works. <br/>
-<br/>
-<br/>
+It should be noted that according to the performance metrics, our final model is Random Forest. Random Forest require neither encoding categorical features nor scaling numerical features. However, we still do encoding and scaling processes because we will test other classification methods such as SVM, KNN, and Logistic Reression and these methods require encoded categorical data and scaled numerical data to produce better results. Also, to encode categorical data, we used label encoder method which is a simple encoder method; however, other encoders such as One Hot encoder might produce more reliable results and should be considered in future works.
+
+
 
 
 
@@ -170,20 +173,16 @@ Scenario 3: We supposed that we do not have any information on meeting the Miles
 
 ### 5.1.1. Using binary features for meeting the Milestones 1-9
 
-In Model 1, in addition to the available features, we included the binary features showing whether the milestones 1-9 have been met or not. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
+In this section, in addition to time-independent features, we included the binary features showing whether the milestones 1 through 9 have been met or not. We tuned a Random Forest model to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest (Figure 3). Figure 3 helps us select the features with higher importance and discard the ones with lower/negligible importance, and as we can see, the following 12 features are selected:
+
+selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 'MILESTONE_2_meet', 'MILESTONE_3_meet', 'MILESTONE_4_meet', 'MILESTONE_6_meet', 'MILESTONE_8_meet','MILESTONE_9_meet', 'MILESTONE_10_meet']
+
+We can also see that, Milestone_9_meet has the most important feature followed by NIN_NUMBER, which is the line number in the supply chain network. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset. Figure 4 shows the confusion matrix obtained from this model. As seen in this Figure, the overall accuracy is about 92%. Also, Table 2 presents other performance metrics of this model including precision, recall, and f1.
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure1](https://user-images.githubusercontent.com/61207345/101667738-b16b6480-3a1d-11eb-976d-b0db726cc1dc.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **<Figure3: Feature Selection>**
-
-
-Using Random Forest, Figure 3 represents the binary features with variying levles of importance. This helps us select the features with higher importance and discard the ones with lower/ negligible importance, and as we can see, the following 12 features are selected:
-
-selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 'MILESTONE_2_meet', 'MILESTONE_3_meet', 'MILESTONE_4_meet', 'MILESTONE_6_meet', 'MILESTONE_8_meet','MILESTONE_9_meet', 'MILESTONE_10_meet']
-
-We can also see that, Milestone_9_meet has the most important feature followed by NIN_NUMBER, which is the line number in the supply chain network.
-
 
 
 
@@ -192,14 +191,13 @@ We can also see that, Milestone_9_meet has the most important feature followed b
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure4: Confusion Matrix>**
 
-The above Figure 4 shows the confusion matrix which represents the level of accuracy/ performance of our model. The block correspeonding to (0, 0) (Actual vs Predicted) values represents true negative. Similarly (1,1) represents true positive. However, (0, 1) and (1, 0) are the undesirable false positive and false negative predictions. Also, the overall accuracy is under 92 % and we cannot say that the accuray is very high. 
 
 
-Mean Cross-Validated Accuracy: 0.9142750054122457
+Mean Cross-Validated Accuracy: 0.91428
 
-Training Accuracy: 0.9195601166070201
+Training Accuracy: 0.91956
 
-Testing Accuracy: 0.9169589534553039
+Testing Accuracy: 0.91696
 
 
 
@@ -209,36 +207,27 @@ Testing Accuracy: 0.9169589534553039
 |0  | 0.96  |0.92  |0.94  |7423  |
 | 1  | 0.82  |0.92  |0.87  |3126  |
 
-The Table 2 is a classification report consisting of the following:
 
-Precision: The ratio of correctly predicted positive observations to the total predicted positive observations.
-
-Recall: THe ratio of correctly predicted positive observations to the all observations in actual class - yes.
-
-F1 Score: The weighted average of Precision and Recall. F1-score takes both false positives and false negatives into account
-
-High precision relates to the low false positive rate. We have got 0.82 precision (for 1) which is pretty good.
-Also, other numbers including Recall, F1 Score are also pretty good
 
 
 
 
 ### 5.1.2. Using difference features for meeting Milestones 1-9
 
-In Model 2, instead of using the binary features for meeting the milestones 1 through 9, we used the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9. We tuned Random Forest to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset.
+In this section, instead of using the binary features for meeting the milestones 1 through 9, we used the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9. We tuned a Random Forest model to determine the best values for the hyperparameters of max_depth, max_features, and min_samples_leaf. Also, we determined the importance of features and selected the most important ones using the importance of features obtained from Random Forest (Figure 5). In Figure 5, the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9, are shown with variying levles of importance. This helps us select the features with higher importance and discard the ones with lower/negligible importance, and as we can see, the following 12 features are selected:
+
+selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO',
+                     'MILESTONE_2_Diff', 'MILESTONE_3_Diff', 'MILESTONE_4_Diff', 'MILESTONE_6_Diff', 
+                     'MILESTONE_8_Diff', 'MILESTONE_9_Diff', 'MILESTONE_10_meet']
+
+Note that, Milestone_9_Diff has the highest important, followed by Milestone_6_Diff and Milestone_8_Diff. This makes sense because previosuly we only looked at whether a previous milestone was met or not but here, we using numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9 gives us a better understanding of whether there could be a delay in the shipment or not. For example, a milestone can be considered as met (1) if it make it even at the last minute (depending on the time frame we take into consideration). However, if we do so, we lose valuable insights such as the difference between a shipment meeting a milestone 2 days in advance vs 1 hour before the deadline. Finally, we selected the most important features, trained the tuned Random Forest model, and obtained the performance metrics using test dataset (Figure 6 and Table 3). From the classification report shown in Table 3, we have got 0.98 precision (for class 1) which is much higher than previous model. Also, other performance metrics including Recall, F1 Score are also much higher than the previous model.
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure3](https://user-images.githubusercontent.com/61207345/101671314-55570f00-3a22-11eb-8930-393fb618c58d.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **<Figure5: Feature Selection>**
 
-In Figure 5 the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9, are shown with variying levles of importance. This helps us select the features with higher importance and discard the ones with lower/ negligible importance, and as we can see, the following 12 features are selected:
 
-selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO',
-                     'MILESTONE_2_Diff', 'MILESTONE_3_Diff', 'MILESTONE_4_Diff', 'MILESTONE_6_Diff', 
-                     'MILESTONE_8_Diff', 'MILESTONE_9_Diff', 'MILESTONE_10_meet']
-
-Note that, Milestone_9_Diff has the highest important, followed by Milestone_6_Diff and Milestone_8_Diff. This makes sense because previosuly we only looked at whether a previous milestone was met or not but here, we using numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9 gives us a better understanding of whether there could be a delay in the shipment or not. For example, a milestone can be considered as met (1) if it make it even at the last minute (depending on the time frame we take into consideration). However, if we do so, we lose valuable insights such as the difference between a shipment meeting a milestone 2 days in advance vs 1 hour before the deadline. 
 
 
 
@@ -249,11 +238,11 @@ Note that, Milestone_9_Diff has the highest important, followed by Milestone_6_D
 The confusion matrix in Figure 6 shows that we have only 53 false negatives and 74 false positives, which is much less than out previous model. When using the numerical features showing the difference between the scheduled and actualized dates for the milestones 1 through 9 (instead of using the binary features for meeting the milestones 1 through 9 in model 1), we found that all accuracy increased to 98%.
 
 
-Mean Cross-Validated Accuracy: 0.987130651061792
+Mean Cross-Validated Accuracy: 0.98713
 
-Training Accuracy: 0.9942881520631385
+Training Accuracy: 0.99429
 
-Testing Accuracy: 0.9879609441653238
+Testing Accuracy: 0.98796
 
 
 
@@ -267,136 +256,113 @@ Testing Accuracy: 0.9879609441653238
 | 1  | 0.98  |0.98  |0.98  |3126  |
 
 
-From the classification report shown in Table 2, we can see that, high precision relates to the low false positive rate. We have got 0.98 precision (for 1) which is much higher than model 1 case. Also, other numbers including Recall, F1 Score are also much more higher than model 1.
 
 
 
 ### 5.1.3. Dropping Milestones 6 and 8 & Compare the Performance of Various Classification Methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression
 
-In Model 3, to increase the size of training and test datasets, we removed the features related to the Milestones 6 and 8 as they have much more Null values compared to other features. Because we want to run different classification methods and compare their performance metrics, we performed a correlation matrix beteen features and selected the highest correlated features with the target feature as the most important features. Then, we tuned the hyperparameters of several classification methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression. Finally, we trained the tuned models, obtained the performance metrics using test dataset, and compare the results.
+In this section, to increase the size of training and test datasets, we removed the features related to the Milestones 6 and 8 as they have much more Null values compared to other features. Because we want to run different classification methods and compare their performance metrics, we performed a correlation matrix between features and selected the highest correlated features with the target feature as the most important features. Then, we tuned the hyperparameters of several classification methods including Random Forest, Decision Tree, SVM, KNN, and Logistic Regression. Finally, we trained the tuned models, obtained the performance metrics using test dataset, and compare the results.
 
 
 
 
 #### 5.1.3.1. Correlation Matrix
 
+First, we calculated a correlation matrix to select highly-correlated features with the target feature (Milestone 10). Figure 7 shows a color coded correlation matrix consisting of the features where, a lighter color represents higher positive correlation between two features and as the color gets darker, the correlation is lower and goes to a negative correlation. This gives us a visual understanding of the features that are highly correlated to our outcome of interest (i.e., Milestone 10). According to this correlation matrix, we slected the following features with high positive or negative correlations with the target feature:
+
+selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 
+                     'MILESTONE_2_Diff', 'MILESTONE_3_Diff', 'MILESTONE_4_Diff', 'MILESTONE_9_Diff', 'MILESTONE_10_meet']
+                     
+
 
 ![figure7](https://user-images.githubusercontent.com/61207345/101671610-b54db580-3a22-11eb-9acc-112772bdcf62.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure7: Correlation Matrix>**
 
-Figure 7 shows a color coded correlation matrix consisting of the features where, a lighter color represents higher correlation between two features and as the color gets darker, the correlation is lower and even goes to a negative correlation. This gives us a visual understanding of the features that are highly correlated to our outcome of interest.
+
 
 
 #### 5.1.3.2. Random Forest
 
+In this section, we tuned and ran a random forest model. From Table 4, we can see that we have got 0.98 precision and 0.99 (for the classes of 1 and 0) which is much higher than previous models. Also, other metrics including precision, Recall, F1 Score are also much higher than previous models.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure5](https://user-images.githubusercontent.com/61207345/101778115-6c990980-3ac1-11eb-93a3-ab8dcf3d355c.png)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **<Figure8: Feature Selection>**
-
-As seen in the above Figure 8, Milestone_9_Diff has the most important feature. Based on the level of importance, the following 10 features are selected:
-
-
-selected_features = ['SUPPLIER_LOCATION', 'LINE_NUMBER', 'ITEM_PRIME_ID', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 
-                     'MILESTONE_2_Diff', 'MILESTONE_3_Diff', 'MILESTONE_4_Diff', 'MILESTONE_9_Diff', 'MILESTONE_10_meet']
 
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure9](https://user-images.githubusercontent.com/61207345/101671952-37d67500-3a23-11eb-833a-1df006266c8d.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure9: Confusion Matrix>**
-
-The confusion matrix in Figure 9 shows that we have only 59 false negatives and 71 false positives, which is good because our accuracy increased to approx. 99%.
-
-Mean Cross-Validated Accuracy: 0.9889121228458648
-
-Training Accuracy: 0.9944941893694037
-
-Testing Accuracy: 0.9900937285681628
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure9: Random Forest Confusion Matrix>**
 
 
+Mean Cross-Validated Accuracy: 0.98891
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 4: Classification Report** 
+Training Accuracy: 0.99449
+
+Testing Accuracy: 0.99009
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 4: Random Forest Classification Report** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
 | 1  | 0.98  |0.98  |0.98  |3558  |
 
-
-From Table 4, we can see that high precision relates to the low false positive rate. We have got 0.98 precision and 0.99 (for 1 and 0) which is much higher than model 1 case. Also, other numbers including Recall, F1 Score are also much more higher than model 1 and similar with model 2
 
 
 
 #### 5.1.3.3. Decision Tree
 
-The best tuned hyperparameters are:
-{'max_depth': 15, 'max_features': 9, 'min_samples_leaf': 1, 'min_samples_split': 3}
-
-The Cross Validated Accuracy for the best Model is: 0.9874261764145551
+In this section, we tuned and ran a decision tree model. The confusion matrix in Figure 10 shows that we have only 63 false negatives and 84 false positives, which is good, as the accuracy is approx. 98.9%.
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure10](https://user-images.githubusercontent.com/61207345/101672144-7d933d80-3a23-11eb-9532-1e26c7e79a1c.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure10: Confusion Matrix>**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure10: Decision Tree Confusion Matrix>**
 
-The confusion matrix in Figure 10 shows that we have only 63 false negatives and 84 false positives, which is good, as we the accuracy is approx. 98.9%.
  
-Mean Cross-Validated Accuracy: 0.9873880230048796
+Mean Cross-Validated Accuracy: 0.98739
 
-Training Accuracy: 0.9939226519337017
+Training Accuracy: 0.99392
 
-Testing Accuracy: 0.9887982930732302
+Testing Accuracy: 0.98880
 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 5: Classification Report** 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 5: Decision Tree Classification Report** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
 | 1  | 0.98  |0.98  |0.98  |3558  |
 
- 
-High precision relates to the low false positive rate. We have got 0.98 precision and 0.99 (for 1 and 0) which is much higher than model 1 case and similar with model 2
-
-Also, other numbers including Recall, F1 Score are also much more higher than model 1 and similar with model 2
 
  
  
  
 #### 5.1.3.4. SVM
 
-The best tuned hyperparameters are:
-{'C': 50, 'kernel': 'rbf'}
-
-The Cross Validated Accuracy for the best Model is:
-0.9225185749666603
+In this section, we tuned and ran an SVM model. The confusion matrix in Figure 11 shows that using the SVM model, we get 246 false negatives and 770 false positives. We also found that accuracy is appox. 92%. 
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure9](https://user-images.githubusercontent.com/61207345/101672312-baf7cb00-3a23-11eb-8b7b-bf0e543430f7.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure11: Confusion Matrix>**
-
-The confusion matrix in Figure 11 shows that using the SVM model, we get 246 false negatives and 770 false positives, which is much higher than our previous models. We also found that accuracy is only appox. 92%.
-
-Mean Cross-Validated Accuracy: 0.9217184836932603
-
-Training Accuracy: 0.9232044198895027
-
-Testing Accuracy: 0.9225786786557951
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure11: SVM Confusion Matrix>**
 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 6: Classification Report** 
+Mean Cross-Validated Accuracy: 0.92172
+
+Training Accuracy: 0.92320
+
+Testing Accuracy: 0.92258
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 6: SVM Classification Report** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
 | 1  | 0.98  |0.98  |0.98  |3558  |
-
-
-High precision relates to the low false positive rate. We have got 0.98 precision and 0.99 (for 1 and 0) which is much higher than model 1 case and similar with model 2
-
-Also, other numbers including Recall, F1 Score are also much more higher than model 1 and similar with model 2
 
 
 
@@ -404,35 +370,30 @@ Also, other numbers including Recall, F1 Score are also much more higher than mo
 
 #### 5.1.3.5. KNN
 
-The best tuned hyperparameters are: {'n_neighbors': 1}
-
-The Cross Validated Accuracy for the best Model is: 0.9784911411697467
+In this section, we tuned and ran an KNN model. The confusion matrix in Figure 12 shows that using the KNN model, we get 127 false negatives and 123 false positives. We also found that accuracy is appox. 98%. 
           
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure10](https://user-images.githubusercontent.com/61207345/101672458-e37fc500-3a23-11eb-919b-1fd937592e2e.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure12: Confusion Matrix>**
-
-The confusion matrix in Figure 12 shows that using the KNN model, we get 127 false negatives and 123 false positives, which is much better than SVM's prediction but not as good as the other models. We found that accuracy is appox. 98%.
-
-Mean Cross-Validated Accuracy: 0.97883402354555
-
-Training Accuracy: 0.9964945703943608
-
-Testing Accuracy: 0.9809494780156977
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure12: KNN Confusion Matrix>**
 
 
 
+Mean Cross-Validated Accuracy: 0.97883
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 6: Classification Report** 
+Training Accuracy: 0.99649
+
+Testing Accuracy: 0.98095
+
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 6: KNN Classification Report** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
 | 1  | 0.97  |0.96  |0.96  |3558  |
-
-
-High precision relates to the low false positive rate. We have got 0.90 precision and 0.96 (for 1 and 0) which is much higher than model 1 case. When comparing above models, KNN's precision, recall, and f1-score for 1 is slightly less.
 
 
 
@@ -440,48 +401,43 @@ High precision relates to the low false positive rate. We have got 0.90 precisio
 
 #### 5.1.3.6. Logitstic Regression
 
-The best tuned hyperparameters are: {'C': 10, 'penalty': 'l1'}
-
-The Cross Validated Accuracy for the best Model is: 0.9078491141169747
+In this section, we tuned and ran an Logistic Regression model. The confusion matrix in Figure 13 shows that using the Logistic Regression model, we get 465 false negatives and 749 false positives, which is much higher than our previous models. We also found that accuracy is the least at only appox. 90%. Thus, logitstic regression model shows poor performance in this case.
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure11](https://user-images.githubusercontent.com/61207345/101672574-0a3dfb80-3a24-11eb-8448-108471c534e8.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure13: Confusion Matrix>**
-
-Lastly, the confusion matrix in Figure 13 shows that using the Logistic Regression model, we get 465 false negatives and 749 false positives, which is much higher than our previous models. We also found that accuracy is the least at only appox. 90%.
-
-Mean Cross-Validated Accuracy: 0.9081731153287536
-
-Training Accuracy: 0.9083825490569633
-
-Testing Accuracy: 0.9075668673321649
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure13: Logistic Regression Confusion Matrix>**
 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 7: Classification Report** 
+Mean Cross-Validated Accuracy: 0.90817
+
+Training Accuracy: 0.90838
+
+Testing Accuracy: 0.90757
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 7: Logistic Regression Classification Report** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.95  |0.92  |0.94  |9565  |
 | 1  | 0.81  |0.87  |0.84  |3558  |
 
 
-High precision relates to the low false positive rate. We have got 0.95 precision and 0.81 (for 1 and 0) which is the least number when comparing above models. 
-
-Also, other numbers including Recall, F1 Score are also much less than above models.
-
-Thus, logitstic model shows poor performance and it is not recommened to use logitstic model in scenario 1
 
 
 
 
 #### 5.1.3.7. Comparison of Models
 
+Figure 14 gives a consolidated comparison of all the five models we used in this section. We can see that Logistic Regression has the lease accuracy followed by SVm. Among KNN, Decision Tree, and Random Forest, we can see that they all have a high accuracy but Random Forest is the one with the highest level of accuracy among all.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 14: Comparison of Models>**
 
-The above Figure 14 gives a consolidated comparison of all the five models we used in our prediction. We can see that Logistic Regression has the lease accuracy followed by SVm. Among KNN, Decision Tree, and Random Forest, we can see that they all have a higher accuracy but Random Forest is the one with the highest level of accuracy among all.
+
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Table 8: Comparison of Models** 
@@ -492,12 +448,6 @@ The above Figure 14 gives a consolidated comparison of all the five models we us
 | SVM | 0.9232  |0.9226  |0.9217 |
 | KNN  | 0.9965  |0.9809  |0.9788  |
 | Logitstic Regression  | 0.9084  |0.9076  |0.9082 |
-
-
-From the comparison of models, we found that Random Forest has the highest accuracy (over 98%) and Logistic Rgression has the lowest accuracy (under92%). 
-
-Thus, in scenario 1, it is recommened to use Random Forest model. 
-
 
 
 
