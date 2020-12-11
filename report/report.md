@@ -340,7 +340,7 @@ Training Accuracy: 0.99649
 
 Testing Accuracy: 0.98095 <br/>
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 6: KNN Classification Report>** 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 7: KNN Classification Report>** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |9565  |
@@ -367,7 +367,7 @@ Testing Accuracy: 0.90757 <br/>
 <br/>
 <br/>
 
-&nbsp;**<Table 7: Logistic Regression Classification Report>** 
+&nbsp;**<Table 8: Logistic Regression Classification Report>** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.95  |0.92  |0.94  |9565  |
@@ -388,7 +388,7 @@ Figure 14 gives a consolidated comparison of all the five models we used in this
 <br/>
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 8: Comparison of Models>** 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 9: Comparison of Models>** 
 | Method  | Training Accuracy |Testing Accuracy |Mean Cross Validation Accuracy |
 | ------------- | ------------- |------------- |------------- |
 | Random Forest | 0.9945  |0.9901  |0.9889 |
@@ -437,7 +437,7 @@ Testing Accuracy: 0.97989 <br/>
 <br/>
 <br/>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 9: Scenario 2 Classification Report>**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 10: Scenario 2 Classification Report>**
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.99  |0.99  |0.99  |11427  |
@@ -478,7 +478,7 @@ Testing Accuracy: 0.86523 <br/>
 <br/>
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 10: Scenario 3 Classification Report>** 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Table 11: Scenario 3 Classification Report>** 
 |   | Precision |Recall |F1-Score |Support |
 | ------------- | ------------- |------------- |------------- |------------- |
 |0  | 0.90  |0.92  |0.91  |13957  |
