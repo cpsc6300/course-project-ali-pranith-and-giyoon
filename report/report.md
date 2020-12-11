@@ -269,7 +269,7 @@ Testing Accuracy: 0.99009 <br/>
 
 #### 5.1.3.3. Decision Tree
 
-In this section, we tuned and ran a decision tree model. The confusion matrix in Figure 10 shows that we have only 63 false negatives and 84 false positives, which is good, as the accuracy is approx. 98.9%.
+In this section, we tuned and ran a decision tree model. The confusion matrix in Figure 9 shows that we have only 63 false negatives and 84 false positives, which is good, as the accuracy is approx. 98.9%.
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure10](https://user-images.githubusercontent.com/61207345/101672144-7d933d80-3a23-11eb-9532-1e26c7e79a1c.png)
@@ -297,7 +297,7 @@ Testing Accuracy: 0.98880 <br/>
  
 #### 5.1.3.4. SVM
 
-In this section, we tuned and ran an SVM model. The confusion matrix in Figure 11 shows that using the SVM model, we get 246 false negatives and 770 false positives. We also found that accuracy is appox. 92%. 
+In this section, we tuned and ran an SVM model. The confusion matrix in Figure 10 shows that using the SVM model, we get 246 false negatives and 770 false positives. We also found that accuracy is appox. 92%. 
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure9](https://user-images.githubusercontent.com/61207345/101672312-baf7cb00-3a23-11eb-8b7b-bf0e543430f7.png)
@@ -324,7 +324,7 @@ Testing Accuracy: 0.92258 <br/>
 
 #### 5.1.3.5. KNN
 
-In this section, we tuned and ran an KNN model. The confusion matrix in Figure 12 shows that using the KNN model, we get 127 false negatives and 123 false positives. We also found that accuracy is appox. 98%. 
+In this section, we tuned and ran an KNN model. The confusion matrix in Figure 11 shows that using the KNN model, we get 127 false negatives and 123 false positives. We also found that accuracy is appox. 98%. 
           
 
 
@@ -350,7 +350,7 @@ Testing Accuracy: 0.98095 <br/>
 
 #### 5.1.3.6. Logitstic Regression
 
-In this section, we tuned and ran an Logistic Regression model. The confusion matrix in Figure 13 shows that using the Logistic Regression model, we get 465 false negatives and 749 false positives, which is much higher than our previous models. We also found that accuracy is the least at only appox. 90%. Thus, logitstic regression model shows poor performance in this case.
+In this section, we tuned and ran an Logistic Regression model. The confusion matrix in Figure 12 shows that using the Logistic Regression model, we get 465 false negatives and 749 false positives, which is much higher than our previous models. We also found that accuracy is the least at only appox. 90%. Thus, logitstic regression model shows poor performance in this case.
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure11](https://user-images.githubusercontent.com/61207345/101672574-0a3dfb80-3a24-11eb-8448-108471c534e8.png)
@@ -378,7 +378,7 @@ Testing Accuracy: 0.90757 <br/>
 
 #### 5.1.3.7. Comparison of Models
 
-Figure 14 gives a consolidated comparison of all the five models we used in this section. We can see that Logistic Regression has the lease accuracy followed by SVm. Among KNN, Decision Tree, and Random Forest, we can see that they all have a high accuracy but Random Forest is the one with the highest level of accuracy among all.
+Figure 13 gives a consolidated comparison of all the five models we used in this section. We can see that Logistic Regression has the lease accuracy followed by SVm. Among KNN, Decision Tree, and Random Forest, we can see that they all have a high accuracy but Random Forest is the one with the highest level of accuracy among all.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![figure12](https://user-images.githubusercontent.com/61207345/101672654-26419d00-3a24-11eb-9f79-4eb1fba46803.png)
 
@@ -405,7 +405,7 @@ Figure 14 gives a consolidated comparison of all the five models we used in this
 In Scenario 2, we supposed that we are at the early stage before meeting any milestones. Therefore, there is no information on meeting the Milestones 1 through 9. However, we can include some features showing the difference between the scheduled date of milestone 10 and the scheduled dates of other milestones because the scheduled date of all the Milestones are set at the early stage though we don't know whether these scheduled dates will be met or not. Additionally, we used some new features showing the difference between the scheduled date of milestone 10 and some given dates such as Line_SOP date, Line_RAS date, and SCP date. Because the comparison of the several classification methods in the previous section showed that the Random Forest Model results in better performance, we only run a Random Forest model for this scenario. The importance obtained from the Random Forest shows that while the differences between the scheduled date of milestone 10 and the scheduled dates of other milestones are not important, the differences from Line_SOP date, Line_RAS date, and SCP date are very important.
 
 
-As seen in Figure 15, the following 11 features having the highest level of importance are selected:
+As seen in Figure 14, the following 11 features having the highest level of importance are selected:
 
 
 selected_features = ['REV', 'SUPPLIER_LOCATION', 'LINE_NUMBER', 'PO_PRIME_ID', 'ITEM_PRIME_ID', 'MATERIAL_TYPE', 'SHIP_POINT','RECEIVING_ONLY_PO', 'SCHEDULE_SOP_10_Diff', 'SCHEDULE_RAS_10_Diff', 'SCHEDULE_SCP_10_Diff', 'MILESTONE_10_meet']
@@ -427,7 +427,7 @@ It should be noted that the three features of Schedule_SOP_10_Diff, Schedule_RAS
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<Figure 15: Scenario 2 Confusion Matrix>** <br/>
 <br/>
 
-The confusion matrix in Figure 16 shows that using the Random Forest model in our second scinario, we get 143 false negatives and 167 false positives, and an accuracy of appox. 98%.
+The confusion matrix in Figure 15 shows that using the Random Forest model in our second scinario, we get 143 false negatives and 167 false positives, and an accuracy of appox. 98%.
 
 Mean Cross-Validated Accuracy: 0.98014
 
@@ -451,7 +451,7 @@ In Scenario 3, we supposed that we do not have any information on meeting the mi
 
 
 
-As seen in Figure 17, the following 11 features having the highest level of importance are selected:
+As seen in Figure 16, the following 11 features having the highest level of importance are selected:
 
 selected_features = ['REV', 'SUPPLIER_LOCATION', 'LINE_NUMBER', 'DESTINATION', 'PO_PRIME_ID', 'ITEM_PRIME_ID', 
                      'MATERIAL_TYPE', 'SHIP_POINT', 'RECEIVING_ONLY_PO', 'QTY_ORDERED', 'MILESTONE_10_meet']
@@ -491,7 +491,7 @@ Testing Accuracy: 0.86523 <br/>
 
 ## 5.4. Sensitivity analysis on the effects of training % vs. testing % on the Performance of Random Forest Model
 
-In this section, we perform a sensitivity analysis on the impact of test dataset size on cross-validation accuracy obtained from the Random Forest model. From the sensitivity analysis shown in Figure 19, we can see that when test data size increases, initially the Cross-validation accuracy increases and then decreases. The best cross validation accuracy was obtained from the test dataset size of 20% (The maximum Cross-Validation accuracy is 0.86476 obtained from the test sample size = 0.2).
+In this section, we perform a sensitivity analysis on the impact of test dataset size on cross-validation accuracy obtained from the Random Forest model. From the sensitivity analysis shown in Figure 18, we can see that when test data size increases, initially the Cross-validation accuracy increases and then decreases. The best cross validation accuracy was obtained from the test dataset size of 20% (The maximum Cross-Validation accuracy is 0.86476 obtained from the test sample size = 0.2).
 
 
 
